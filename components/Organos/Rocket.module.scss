@@ -1,0 +1,18 @@
+.rocket {
+  margin-top: 12rem;
+  display: grid;
+  height: 80rem;
+  overflow: hidden;
+  grid-template-columns: repeat(2, 55%);
+
+  & > div:first-of-type {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 30rem;
+    margin-top: 15rem;
+  }
+
+  img {
+  }
+}

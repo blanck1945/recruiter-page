@@ -1,0 +1,37 @@
+@import '../../styles/variables/_variables';
+
+.button {
+  font-family: $monserrat-light;
+  border-radius: 4rem;
+}
+
+.sumate {
+  @extend .button;
+  width: 18rem;
+  height: 4.5rem;
+  background-color: $main-orange;
+  color: $main-white;
+  font-size: 1.8rem;
+}
+
+.nav-button {
+  @extend .button;
+  font-size: 1.3rem;
+  font-weight: 200;
+  width: 12rem;
+  height: 4rem;
+}
+
+.nav-white {
+  @extend .nav-button;
+  background-color: $main-white;
+  color: $main-orange;
+  margin-right: 3rem;
+  border: 1px solid $main-orange;
+}
+
+.nav-orange {
+  @extend .nav-button;
+  background-color: $main-orange;
+  color: $main-white;
+}

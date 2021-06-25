@@ -1,0 +1,36 @@
+@import './_variables';
+
+@mixin flex_center_center {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+}
+
+@mixin h2Header {
+  font-weight: 700;
+  font-family: $neo-sans;
+  line-height: 5.5rem;
+  font-size: 4.5rem;
+  color: $main-orange;
+  width: 100%;
+
+  @media screen and (max-width: 1442px) {
+    font-size: 5rem;
+    line-height: 6rem;
+  }
+}
+
+@mixin pSubHeader {
+  font-weight: 700;
+  width: 100%;
+  padding-top: 2rem;
+  color: $main-black;
+  font-family: $monserrat-light;
+  font-size: 1.8rem;
+  line-height: 3rem;
+
+  @media screen and (max-width: $laptop1440) {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+}

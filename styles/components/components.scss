@@ -1,0 +1,7 @@
+.header {
+  @include h2Header;
+}
+
+.subHeader {
+  @include pSubHeader;
+}

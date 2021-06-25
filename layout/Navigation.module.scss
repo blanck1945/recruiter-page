@@ -1,0 +1,74 @@
+@import '../styles/variables/mixin';
+@import '../styles/variables/_variables';
+
+.navigation {
+  @apply grid;
+  @apply w-full;
+  @apply content-center;
+  width: 100%;
+  height: 11.7rem;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #cecece;
+
+  & > h3 {
+    @include flex_center_center;
+  }
+
+  & > div {
+    @include flex_center_center;
+  }
+
+  .navigationConvert {
+    span {
+      border: 3px solid $secondary-light-blue;
+      border-radius: 3rem;
+      width: 25rem;
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $monserrat;
+      color: $main-black;
+      letter-spacing: 0.1rem;
+      cursor: pointer;
+      font-size: 1.7rem;
+    }
+  }
+
+  & > div:nth-child(2) {
+  }
+
+  & > div:nth-child(3) {
+    & > svg {
+      width: 3.6rem;
+      height: 2.9rem;
+      color: $main-black;
+      font-weight: 200;
+      margin-right: 2.5rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.recruiterNavigation {
+  @extend .navigation;
+
+  & > div:first-of-type {
+    /* UI Properties */
+    border: none;
+    & > svg {
+      width: 3.6rem;
+      height: 2.9rem;
+      color: $main-black;
+      opacity: 1;
+      margin-right: 2.5rem;
+      cursor: pointer;
+    }
+  }
+
+  & > div:nth-child(3) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

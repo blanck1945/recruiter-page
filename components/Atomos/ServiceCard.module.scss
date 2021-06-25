@@ -1,0 +1,35 @@
+@import '../../styles/variables/_variables';
+
+.card {
+  border-radius: 4rem;
+  border: 1px solid $main-light-blue;
+  width: 22rem;
+  height: 23rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+
+  svg {
+    color: $main-orange;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    color: $main-black;
+    font-size: 2rem;
+    font-family: $monserrat;
+    font-weight: 700;
+  }
+
+  p {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 1.5rem;
+    font-size: 1.3rem;
+    color: $main-black;
+    font-weight: 200;
+  }
+}

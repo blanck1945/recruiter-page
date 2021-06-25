@@ -1,0 +1,25 @@
+@import '../../styles/variables/variables';
+
+.recruiters {
+  display: flex;
+  height: 11.7rem;
+  flex-direction: column;
+  margin-top: 2rem;
+  h2 {
+    color: $main-orange;
+    font-family: $neo-sans;
+    font-size: 3rem;
+    line-height: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+    letter-spacing: 0.45rem;
+    font-family: $neo-sans;
+    font-weight: 400;
+    color: $main-black;
+    text-transform: uppercase;
+  }
+}
