@@ -5,6 +5,38 @@
   border-radius: 4rem;
 }
 
+.homeButton {
+  font-family: $monserrat;
+  border-radius: 4rem;
+  height: 5rem;
+  width: 16rem;
+  border-radius: 4rem;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.1rem;
+  font-size: 1.7rem;
+}
+
+.homeWhite {
+  @extend .homeButton;
+  color: $main-orange;
+  border: 1px solid $main-orange;
+}
+
+.homeOrange {
+  @extend .homeButton;
+  background-color: $main-orange;
+  color: $main-white;
+}
+
+.homeBlue {
+  @extend .homeButton;
+  background-color: $home-blue;
+  color: $main-white;
+}
+
 .sumate {
   @extend .button;
   width: 18rem;

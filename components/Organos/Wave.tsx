@@ -18,10 +18,12 @@ const Wave = () => {
   return (
     <>
       <div className={styles.services}>
-        <h2>
-          Brindamos servicios de reclutamiento con un foco muy fuerte en las relaciones humanas de
-          calidad.
-        </h2>
+        <div>
+          <h2>
+            Brindamos servicios de reclutamiento con un foco muy fuerte en las relaciones humanas de
+            calidad.
+          </h2>
+        </div>
         <div className={styles.rightDiv}>
           <div>{getServices(RowsEnums.one)}</div>
           <div>{getServices(RowsEnums.two)}</div>

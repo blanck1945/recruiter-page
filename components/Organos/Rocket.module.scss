@@ -1,18 +1,11 @@
-.rocket {
-  margin-top: 12rem;
-  display: grid;
-  height: 80rem;
-  overflow: hidden;
-  grid-template-columns: repeat(2, 55%);
+@import '../../styles/variables/_mixin';
 
-  & > div:first-of-type {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-left: 30rem;
-    margin-top: 15rem;
-  }
+.rocket {
+  @include PageContainer;
 
   img {
+    height: 60rem;
+    margin-left: 14rem;
+    width: 40rem;
   }
 }

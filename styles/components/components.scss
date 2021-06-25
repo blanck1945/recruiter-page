@@ -5,3 +5,24 @@
 .subHeader {
   @include pSubHeader;
 }
+
+.socialLink {
+  & svg {
+    width: 3.6rem;
+    height: 2.9rem;
+    color: $main-black;
+    font-weight: 200;
+    margin-right: 2.5rem;
+    cursor: pointer;
+  }
+}
+
+.socialLinkWhite {
+  @extend .socialLink;
+  & svg {
+    color: $main-white;
+  }
+}
+
+.logo {
+}

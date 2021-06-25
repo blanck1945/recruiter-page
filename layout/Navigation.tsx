@@ -1,27 +1,20 @@
 import React from 'react';
 import styles from './Navigation.module.scss';
-import links from '../data/router';
 import social from '../data/socialLinks';
 import Link from 'next/link';
 import RecruitersLogo from '@components/Atomos/RecruitersLogo';
-import { ButtonEnum, LayoutValueEnum } from 'types/Enums';
+import { AppRouter, ButtonEnum, LayoutValueEnum } from 'types/Enums';
 import Button from '@components/Atomos/Button';
+import SocialLinks from '@components/Atomos/SocialLinks';
+import { SocialLinkInterface } from 'types/Interfaces';
 
 interface NavigationProps {
   value: LayoutValueEnum;
 }
 
 const Navigation = ({ value }: NavigationProps) => {
-  const navLinks = links.map((link, index: number) => {
-    return <Link href={link.path}>{link.name}</Link>;
-  });
-
-  const socialLinks = social.map(({ logo: Logo, link }, index: number) => {
-    return (
-      <Link href={link}>
-        <Logo />
-      </Link>
-    );
+  const socialLinks = social.map((socialLink: SocialLinkInterface) => {
+    return <SocialLinks socialLink={socialLink} />;
   });
 
   switch (value) {
@@ -29,7 +22,7 @@ const Navigation = ({ value }: NavigationProps) => {
       return (
         <nav className={styles.navigation}>
           <div className={styles.navigationConvert}>
-            <span>Convertite en Recruiter</span>
+            <Link href={AppRouter.pathRecruiter}>Convertite en Recruiter</Link>
           </div>
           <RecruitersLogo />
           <div>{socialLinks}</div>

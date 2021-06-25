@@ -1,0 +1,15 @@
+@import '../../styles/variables/_mixin';
+
+.certificado {
+  @include PageContainer;
+
+  & > div:nth-child(2) {
+    display: flex;
+    align-items: center;
+
+    & > div {
+      margin-left: 20rem;
+      margin-top: 15rem;
+    }
+  }
+}

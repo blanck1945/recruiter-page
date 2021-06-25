@@ -4,6 +4,7 @@ import { FaMoneyBillWave } from 'react-icons/fa';
 import { BsQuestionCircle } from 'react-icons/bs';
 import { GiSandsOfTime } from 'react-icons/gi';
 import { AiFillStar } from 'react-icons/ai';
+import { FaSun } from 'react-icons/fa';
 
 export const Services: ServicesInterface[] = [
   {
@@ -31,3 +32,10 @@ export const Services: ServicesInterface[] = [
     row: RowsEnums.three,
   },
 ];
+
+export const CertificadoData: ServicesInterface = {
+  logo: () => <FaSun />,
+  header: 'Certificaciones',
+  desc: 'Certificamos el conocimiento de cada uno de nuestros recruiters brindándoles diariamente capacitaciones de calidad',
+  row: RowsEnums.three,
+};

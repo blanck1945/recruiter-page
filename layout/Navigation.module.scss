@@ -19,7 +19,7 @@
   }
 
   .navigationConvert {
-    span {
+    a {
       border: 3px solid $secondary-light-blue;
       border-radius: 3rem;
       width: 25rem;
@@ -34,20 +34,6 @@
       font-size: 1.7rem;
     }
   }
-
-  & > div:nth-child(2) {
-  }
-
-  & > div:nth-child(3) {
-    & > svg {
-      width: 3.6rem;
-      height: 2.9rem;
-      color: $main-black;
-      font-weight: 200;
-      margin-right: 2.5rem;
-      cursor: pointer;
-    }
-  }
 }
 
 .recruiterNavigation {
@@ -56,14 +42,6 @@
   & > div:first-of-type {
     /* UI Properties */
     border: none;
-    & > svg {
-      width: 3.6rem;
-      height: 2.9rem;
-      color: $main-black;
-      opacity: 1;
-      margin-right: 2.5rem;
-      cursor: pointer;
-    }
   }
 
   & > div:nth-child(3) {

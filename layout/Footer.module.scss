@@ -1,0 +1,32 @@
+@import '../styles/variables/variables';
+
+.footer {
+  @apply w-full;
+  height: 21rem;
+  margin-top: 12rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: $main-light-blue;
+  align-items: center;
+
+  & > div:first-of-type {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & > div:nth-child(2) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & > div:nth-child(3) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

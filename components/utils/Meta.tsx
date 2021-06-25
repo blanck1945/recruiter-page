@@ -18,10 +18,9 @@ interface Props {
 }
 
 Meta.defaultProps = {
-  title: 'ThankYouNext',
+  title: 'Recruiters Freelance | LATAM',
   keywords: 'web development, programming, next.js',
-  description:
-    'Next.js starter template featuring TypeScript, Sass, ESLint & Prettier configuration and much more!',
+  description: 'Pagina Recruiters.com TS - SCSS - REACT',
   imageSource: 'https://thankyounext.vercel.app/seo.png',
   imageType: 'image/png',
   imageAltText: 'ThankYouNext - A highly performant and accessible Next.js starter template',

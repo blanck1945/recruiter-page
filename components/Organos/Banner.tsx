@@ -2,10 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './Banner.module.scss';
 import Button from '@components/Atomos/Button';
-import { ButtonTypes } from 'types/ButtonTypes';
 import { LayoutValueEnum } from 'types/Enums';
 import useWindowSize from 'hooks/useWindowWidth';
 import { setHeight, setWidth } from 'utils/windowSize';
+import LogoImage from '@components/Atomos/LogoImage';
 
 interface BannerProps {
   image: LayoutValueEnum;
@@ -30,14 +30,7 @@ const Banner = ({ image, para: Para, buttonContent }: BannerProps) => {
   return (
     <div className={styles.banner}>
       <div>
-        <Image
-          className={styles.bannerImg}
-          src="/re-logo.png"
-          alt="re-logo"
-          height={101}
-          width={76}
-          priority
-        />
+        <LogoImage />
         <div className={styles.bannerHeader}>
           <h2>Escalá tu negocio</h2>
           <h2>con nuestra red</h2>

@@ -13,3 +13,9 @@ export interface RocketDataInterface {
   header: () => JSX.Element;
   subHeader: () => JSX.Element;
 }
+
+export interface SocialLinkInterface {
+  link: string;
+  name: string;
+  logo: IconType;
+}

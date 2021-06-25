@@ -16,13 +16,22 @@
     grid-template-columns: repeat(2, 50%);
   }
 
-  & > h2 {
-    color: $main-white;
-    font-family: $neo-sans;
-    font-size: 5rem;
-    width: 76.6rem;
-    height: 31.7rem;
-    padding-left: 21.1rem;
+  & > div:first-of-type {
+    display: flex;
+    margin-top: 33rem;
+    align-items: center;
+    justify-content: center;
+    & > h2 {
+      color: $main-white;
+      font-family: $neo-sans;
+      font-size: 4.2rem;
+      letter-spacing: 0.1rem;
+      line-height: 5.2rem;
+      width: 76.6rem;
+      font-weight: 700;
+      height: 31.7rem;
+      padding-left: 14rem;
+    }
   }
 
   .rightDiv {

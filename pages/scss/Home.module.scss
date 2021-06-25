@@ -1,0 +1,52 @@
+@import '../../styles/variables/_mixin';
+@import '../../styles/variables/variables';
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 38%);
+  height: 100vh;
+
+  .data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 14rem;
+
+    & > div:first-of-type {
+      width: 100%;
+      height: 21rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    & > div:nth-child(2) {
+      h2 {
+        @include h2MainHeader;
+        font-size: 6.2rem;
+        line-height: 7rem;
+        letter-spacing: 0.2rem;
+      }
+
+      p {
+        @include pMainSubHeader;
+        padding-top: 1.8rem;
+        font-family: $neo-sans;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 3.8rem;
+        letter-spacing: 0.2rem;
+        color: $main-light-blue;
+      }
+    }
+
+    & > div:nth-child(3) {
+      display: flex;
+      align-items: center;
+      margin-top: 5rem;
+      width: 81%;
+    }
+  }
+}

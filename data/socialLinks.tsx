@@ -4,12 +4,12 @@ import { FaTwitter } from 'react-icons/fa';
 
 export default [
   {
-    link: '',
+    link: 'https://www.instagram.com/recruitersfreelance/',
     name: 'instagram',
     logo: () => <IoLogoInstagram />,
   },
   {
-    link: '',
+    link: 'https://www.linkedin.com/company/recruitersfreelance/',
     name: 'linkedIn',
     logo: () => <GrLinkedin />,
   },

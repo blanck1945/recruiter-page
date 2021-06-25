@@ -1,5 +1,26 @@
 // Información estatica de las paginas. Se puede volcar en un CMS para acceso y modificación.
 export default {
+  home: {
+    header: {
+      header: () => {
+        return (
+          <h2 className="header">
+            Escalá tu negocio
+            <br /> con nuestra red
+          </h2>
+        );
+      },
+      subHeader: () => {
+        return (
+          <p className="subHeader">
+            Brindamos servicios de reclutamiento
+            <br /> con un foco muy fuerte en las
+            <br /> relaciones humanas de calidad.
+          </p>
+        );
+      },
+    },
+  },
   recruiter: {
     para: () => {
       return (
@@ -61,12 +82,10 @@ export default {
       header: () => {
         return (
           <h2 className="header">
-            Nuestros recruiters
-            <br /> cuentan con el
-            <br /> profesionalismo y<br /> especialización para
-            <br /> alcanzar al candidato ideal
-            <br /> que se ajuste a cada
-            <br /> búsqueda específica.
+            Nuestros recruiters cuentan
+            <br /> con el profesionalismo y<br /> especialización para alcanzar al
+            <br /> candidato ideal que se a<br />
+            juste a cada búsqueda específica.
           </h2>
         );
       },

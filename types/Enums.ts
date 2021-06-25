@@ -15,3 +15,9 @@ export enum ButtonEnum {
   navOrage = 'nav-orange',
   sumate = 'sumate',
 }
+
+export enum AppRouter {
+  pathEmpresa = '/home/empresa',
+  pathRecruiter = '/home/recruiter',
+  pathHome = '/',
+}
