@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './Banner.module.scss';
 import Button from '@components/Atomos/Button';
-import { LayoutValueEnum } from 'types/Enums';
+import { ButtonEnum, LayoutValueEnum } from 'types/Enums';
 import useWindowSize from 'hooks/useWindowWidth';
 import { setHeight, setWidth } from 'utils/windowSize';
 import LogoImage from '@components/Atomos/LogoImage';
@@ -36,7 +36,7 @@ const Banner = ({ image, para: Para, buttonContent }: BannerProps) => {
           <h2>con nuestra red</h2>
         </div>
         <Para />
-        <Button buttonClass="sumate">{buttonContent}</Button>
+        <Button buttonClass={ButtonEnum.sumate}>{buttonContent}</Button>
       </div>
       <div>
         <Image

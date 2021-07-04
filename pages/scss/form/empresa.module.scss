@@ -1,4 +1,5 @@
-@import '../../../styles/variables/variables';
+@import '../../../styles/variables/mixin';
+@import '../../../styles/variables/functions';
 
 .form {
   height: 100vh;
@@ -8,16 +9,28 @@
   & > div:first-of-type {
     display: flex;
     align-items: center;
-    margin-top: 10.5rem;
+    margin-top: 10rem;
     flex-direction: column;
+
+    & > div:nth-child(3) {
+      position: relative;
+      left: 3rem;
+      bottom: 2rem;
+      top: 7.5rem;
+    }
   }
 
   & > div:nth-child(2) {
+    @include setVerticalPadding(23.1rem, 15.4rem);
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
     background-color: $main-light-blue;
+    padding-top: 17.2rem;
+
+    & > div {
+      @apply w-full;
+    }
 
     h2 {
       font-size: 6.5rem;
@@ -30,7 +43,18 @@
       font-size: 2.3rem;
       margin-top: 1.5rem;
       color: $main-white;
-      font-family: $monserrat;
+      font-family: $monserrat-light;
+      margin-bottom: 7.5rem;
+    }
+
+    & > form {
+      @apply w-full;
+      margin-right: 4rem;
+      & > div {
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 }

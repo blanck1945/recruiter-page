@@ -1,0 +1,4 @@
+@mixin setVerticalPadding($left, $right) {
+  padding-left: $left;
+  padding-right: $right;
+}

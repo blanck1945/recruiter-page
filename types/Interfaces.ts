@@ -1,4 +1,4 @@
-import { RowsEnums } from './Enums';
+import { ButtonEnum, RowsEnums } from './Enums';
 import { IconType } from 'react-icons';
 
 export interface ServicesInterface {
@@ -18,4 +18,22 @@ export interface SocialLinkInterface {
   link: string;
   name: string;
   logo: IconType;
+}
+
+export interface ButtonsInterface {
+  link: string;
+  name: string;
+  path: string;
+  onNavigation: boolean;
+  content: string;
+  type?: string;
+  buttonClass: ButtonEnum;
+}
+
+export interface FormResponse {
+  msg: string;
+  code: number;
+  data: any;
+  state: string;
+  finish: boolean;
 }

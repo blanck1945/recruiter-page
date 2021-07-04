@@ -1,4 +1,4 @@
-@import '../../styles/variables/_variables';
+@import '../../styles/variables/mixin';
 
 .button {
   font-family: $monserrat-light;
@@ -6,15 +6,13 @@
 }
 
 .homeButton {
+  @include flex_center_center;
   font-family: $monserrat;
   border-radius: 4rem;
   height: 5rem;
   width: 16rem;
   border-radius: 4rem;
   margin-right: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding-bottom: 0.1rem;
   font-size: 1.7rem;
 }
@@ -48,6 +46,7 @@
 
 .nav-button {
   @extend .button;
+  @include flex_center_center;
   font-size: 1.3rem;
   font-weight: 200;
   width: 12rem;
@@ -60,10 +59,12 @@
   color: $main-orange;
   margin-right: 3rem;
   border: 1px solid $main-orange;
+  padding-bottom: 0.2rem;
 }
 
 .nav-orange {
   @extend .nav-button;
   background-color: $main-orange;
   color: $main-white;
+  padding-bottom: 0.2rem;
 }

@@ -101,3 +101,26 @@ export default {
     },
   },
 };
+
+export const FormPageData = {
+  empresa: {
+    header: () => {
+      return (
+        <h2>
+          Estás a un paso de
+          <br /> convertirte en Empresa
+        </h2>
+      );
+    },
+  },
+  recruiter: {
+    header: () => {
+      return (
+        <h2>
+          Estás a un paso de
+          <br /> convertirte en Recruiter
+        </h2>
+      );
+    },
+  },
+};

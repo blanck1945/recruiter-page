@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import Certificado from '@components/Moleculas/Certificado';
 import Banner from '@components/Organos/Banner';
 import Rocket from '@components/Organos/Rocket';
@@ -10,6 +11,7 @@ import PageData from '../../../data/Pages';
 const HomePage = () => {
   // Información estatica de las paginas
   const { buttonContent, para, rocket, certificado } = PageData.empresa;
+
   return (
     <Layout value={LayoutValueEnum.empresa}>
       <Banner buttonContent={buttonContent} para={para} image={LayoutValueEnum.empresa} />

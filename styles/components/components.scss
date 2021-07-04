@@ -1,3 +1,5 @@
+@import '../variables/variables';
+
 .header {
   @include h2Header;
 }
@@ -25,4 +27,78 @@
 }
 
 .logo {
+  cursor: pointer;
+}
+
+.formikForm {
+  height: 30rem;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.formDiv {
+  display: flex;
+  height: 6rem;
+  flex-direction: column;
+  .inputs:focus {
+    border: 0.15rem solid lighten($color: $main-orange, $amount: 15%);
+  }
+
+  & > .formInputs {
+    @extend .inputs;
+    height: 6.5rem;
+    width: 94%;
+    border-radius: 4rem;
+    padding-left: 4rem;
+    outline: none;
+    font-size: 1.5rem;
+  }
+
+  .formInputs::placeholder {
+    color: $main-black;
+    font-weight: bold;
+    font-family: $monserrat-light;
+  }
+
+  & > .formInputsSelect {
+    @extend .inputs;
+    width: 94%;
+    height: 5.5rem;
+    border-radius: 4rem;
+    padding-left: 4rem;
+    appearance: none;
+    outline: none;
+    background-color: white;
+    font-size: 1.5rem;
+    color: $main-black;
+    font-weight: bold;
+    font-family: $monserrat-light;
+    cursor: pointer;
+  }
+
+  .arrow {
+    color: $main-orange;
+    position: relative;
+    right: 4rem;
+    bottom: 0.2rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: inline;
+  }
+
+  .errorMsg {
+    margin-left: 3rem;
+    width: 80%;
+    font-size: 1.5rem;
+    text-align: center;
+    color: $secondary-light-blue;
+    background-color: $main-orange;
+  }
+}
+
+.formDivInput {
+  @extend .formDiv;
+  & > div {
+    background-color: green;
+  }
 }

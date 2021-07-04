@@ -1,9 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const LogoImage = () => {
   return (
-    <Image className="logo" src="/re-logo.png" alt="re-logo" height={101} width={76} priority />
+    <Link href="/">
+      <Image className="logo" src="/re-logo.png" alt="re-logo" height={86} width={70} priority />
+    </Link>
   );
 };
 
