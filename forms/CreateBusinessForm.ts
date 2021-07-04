@@ -2,7 +2,12 @@ import { AppApiEndPoints, BusinessFormFields, WorkTypeEnums } from 'types/Enums'
 import { FormResponse } from 'types/Interfaces';
 import { axiosSender } from 'utils/axios';
 import * as yup from 'yup';
-import { minIntegerValidation, oneOfValidation, requiredValidation } from './FormMessages';
+import {
+  minIntegerValidation,
+  notOneOfValidation,
+  oneOfValidation,
+  requiredValidation,
+} from './FormMessages';
 import { formatResponseMsg } from './uitls';
 
 const setWorkType = (value: string) => {
@@ -23,6 +28,9 @@ const tipoDeEmpresaOptions = ['Startup', 'PyME'];
 const modalidadDeTrabajo = ['Home', 'Presencial', 'mixto'];
 const paisesEmpresa = ['Argentina', 'Uruguay', 'Paraguay', 'EEUU'];
 
+// Valores no asignables a las opciones del formulario
+const noValidaOptions = ['Elija una Opción'];
+
 // Validación en el Front-end con Yup.
 export const CreateBusinessValidationSchema = yup.object().shape({
   nombre: yup.string().required(requiredValidation(BusinessFormFields.nombre)).trim().lowercase(),
@@ -34,10 +42,12 @@ export const CreateBusinessValidationSchema = yup.object().shape({
   rubro: yup
     .mixed()
     .required(requiredValidation(BusinessFormFields.rubro))
+    .not(noValidaOptions, notOneOfValidation())
     .oneOf(rubrosEmpresaOptions, oneOfValidation(BusinessFormFields.rubro)),
   rangoEmpleados: yup
     .mixed()
     .required(requiredValidation(BusinessFormFields.rango))
+    .not(noValidaOptions, notOneOfValidation())
     .oneOf(rangoDeEmpleadosOptions, oneOfValidation(BusinessFormFields.rango)),
   mailsDeContacto: yup
     .string()
@@ -47,14 +57,17 @@ export const CreateBusinessValidationSchema = yup.object().shape({
   tipoDeEmpresa: yup
     .mixed()
     .required(requiredValidation(BusinessFormFields.tipoDeEmpresa))
+    .not(noValidaOptions, notOneOfValidation())
     .oneOf(tipoDeEmpresaOptions, oneOfValidation(BusinessFormFields.tipoDeEmpresa)),
   modalidadDeTrabajo: yup
     .mixed()
     .required(requiredValidation(BusinessFormFields.modalidad))
+    .not(noValidaOptions, notOneOfValidation())
     .oneOf(modalidadDeTrabajo, oneOfValidation(BusinessFormFields.modalidad)),
   paises: yup
     .mixed()
     .required(requiredValidation(BusinessFormFields.pais))
+    .not(noValidaOptions, notOneOfValidation())
     .oneOf(paisesEmpresa, oneOfValidation(BusinessFormFields.pais)),
 });
 
@@ -62,12 +75,12 @@ export const CreateBusinessForm = {
   initialValues: {
     nombre: '',
     cuit: '',
-    rubro: '',
-    rangoEmpleados: '',
+    rubro: 'Elija una Opción',
+    rangoEmpleados: 'Elija una Opción',
     mailsDeContacto: '',
-    tipoDeEmpresa: '',
-    modalidadDeTrabajo: '',
-    paises: '',
+    tipoDeEmpresa: 'Elija una Opción',
+    modalidadDeTrabajo: 'Elija una Opción',
+    paises: 'Elija una Opción',
   },
   builder: [
     {

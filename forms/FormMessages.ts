@@ -9,3 +9,7 @@ export const oneOfValidation = (value?: string) => {
 export const minIntegerValidation = (value: string, num: number) => {
   return 'El ' + value + ' require como minimo ' + num + ' caracteres';
 };
+
+export const notOneOfValidation = () => {
+  return 'Elija una opción para esta campo';
+};

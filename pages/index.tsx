@@ -20,10 +20,7 @@ const Home = () => {
     header: { header: Header, subHeader: SubHeader },
   } = PageData.home;
 
-  const { user, error, isLoading } = useUser();
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
+  const { user } = useUser();
 
   if (user) {
     router.push(`dashboard/${user.name}/dash`);
@@ -32,7 +29,7 @@ const Home = () => {
   if (pathname === '/') {
     return (
       <div className={styles.container}>
-        {user ? (
+        {user && user.name ? (
           <p>Loading...</p>
         ) : (
           <>
