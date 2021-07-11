@@ -19,14 +19,8 @@ interface FormikControlProps {
   initialValues: Partial<any>;
   button?: JSX.Element;
   formClass?: string;
-  buttonProp: boolean;
+  buttonProp?: boolean;
 }
-
-const createLogo = (logo: any) => {
-  const Logo = logo;
-  console.log(logo);
-  return <Logo />;
-};
 
 const FormikControl = ({
   auth,

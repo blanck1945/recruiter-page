@@ -15,11 +15,7 @@ interface indexProps {
 const index = ({ session }: indexProps) => {
   useEffect(() => {
     const getData = async () => {
-      const csrfToken = await getCsrfToken();
       const newSEssion = await getSession();
-      console.log(csrfToken);
-      console.log('Session oBj');
-      console.log(newSEssion);
     };
     getData();
   }, []);
