@@ -57,3 +57,9 @@ export enum AppRouter {
   dashboard = '/dasboard/*',
   pathHome = '/',
 }
+
+export enum EmpleoTemplateParagraph {
+  descripcion = 'Descripción',
+  responsabilidades = 'Responsabilidades del día a día',
+  requisitos = 'Lo que buscamos',
+}

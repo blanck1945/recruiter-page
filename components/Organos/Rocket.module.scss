@@ -4,8 +4,9 @@
   @include PageContainer;
 
   img {
-    height: 60rem;
     margin-left: 14rem;
-    width: 40rem;
+    position: absolute;
+    left: 71rem;
+    top: 227rem;
   }
 }

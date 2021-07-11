@@ -9,15 +9,25 @@
   background-color: $main-light-blue;
   align-items: center;
 
+  @media (max-width: $ipad) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3rem;
+  }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+
   & > div:first-of-type {
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   & > div:nth-child(2) {
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,0 +1,18 @@
+@import '../../../styles/variables/variables';
+
+.container {
+  margin-top: 3.5rem;
+
+  p {
+    font-size: 1.5rem;
+    font-family: $lato-regular;
+    @media (max-width: $ipad) {
+      font-size: 1.2rem;
+    }
+  }
+
+  span {
+    color: $option-gray;
+    margin-right: 0.5rem;
+  }
+}

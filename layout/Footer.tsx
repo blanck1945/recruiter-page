@@ -5,8 +5,13 @@ import social from '../data/socialLinks';
 import { SocialLinkInterface } from 'types/Interfaces';
 import SocialLinks from '@components/Atomos/SocialLinks';
 import { RiSendPlaneFill } from 'react-icons/ri';
+import FormikControl from '@components/Moleculas/FormikControl';
+import { NewsletterForm } from 'forms/NewsletterForm';
+import useWindowSize from 'hooks/useWindowWidth';
 
 const Footer = () => {
+  const windowWidth = useWindowSize();
+
   const socialLinks = social.map((socialLink: SocialLinkInterface) => {
     return <SocialLinks style="white" socialLink={socialLink} />;
   });
@@ -14,10 +19,9 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <RecruitersLogo style="white" />
-      <div>{socialLinks}</div>
+      {windowWidth.width > 880 ? <div>{socialLinks}</div> : null}
       <div>
-        <input type="text" placeholder="Suscribite al Newsletter" />
-        <RiSendPlaneFill />
+        <FormikControl {...NewsletterForm} />
       </div>
     </footer>
   );

@@ -1,7 +1,7 @@
 import { AppApiEndPoints } from 'types/Enums';
 import { axiosSender } from 'utils/axios';
 import * as yup from 'yup';
-import { createFormData } from './uitls';
+import { createFormData, formatResponseMsg } from './uitls';
 
 const setDisponibilidadLaboral = () => {
   "FULL_TIME', 'PART_TIME', 'POR_HORA";
@@ -22,6 +22,7 @@ export const CreateCandidateValidationSchema = yup.object().shape({
 });
 
 export const CreateCandidate = {
+  auth: true,
   initialValues: {
     nombre: '',
     dni: '',
@@ -80,16 +81,20 @@ export const CreateCandidate = {
     },
   ],
   validationSchema: CreateCandidateValidationSchema,
-  onSubmit: async (props: any) => {
+  onSubmit: async (props: any, token: string) => {
     try {
+      console.log(token);
       let formData = props;
       if (props.file) {
         const formData = createFormData(props);
       }
 
-      await axiosSender(AppApiEndPoints.createCandidate, formData);
+      //const response = await axiosSender(AppApiEndPoints.createCandidate, formData);
+
+      //console.log(response);
+      return;
     } catch (err) {
-      console.log(err);
+      return formatResponseMsg(400);
     }
   },
 };

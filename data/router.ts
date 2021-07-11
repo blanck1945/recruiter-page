@@ -7,7 +7,7 @@ export default {
       name: 'login',
       path: AppRouter.pathLogin,
       onNavigation: true,
-      type: 'auth',
+      type: 'next-auth',
       content: 'Iniciar Sesión',
       buttonClass: ButtonEnum.navWhite,
     },

@@ -5,11 +5,13 @@ import Image from 'next/image';
 import styles from '../../scss/form/empresa.module.scss';
 import LogoImage from '@components/Atomos/LogoImage';
 import { CreateCandidate } from 'forms/CreateCandidateForm';
-import { useUser } from '@auth0/nextjs-auth0';
 import { FormPageData } from 'data/Pages';
+import { useSession } from 'next-auth/client';
 
 const index = () => {
-  const { user, error, isLoading } = useUser();
+  const [session, loading] = useSession();
+
+  console.log(session);
 
   // Información de la pagina del formulario Recruiter
   const {

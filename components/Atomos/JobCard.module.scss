@@ -1,0 +1,14 @@
+@import '../../styles/variables/_variables';
+
+.jobCard {
+  display: flex;
+  justify-content: space-between;
+  background-color: $card-white;
+  margin: auto;
+  margin-bottom: 3rem;
+  height: 15.8rem;
+  padding-left: 5.4rem;
+  padding-bottom: 1.4rem;
+  padding-top: 2.4rem;
+  padding-right: 7.4rem;
+}

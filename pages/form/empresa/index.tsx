@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import FormikControl from '../../../components/Moleculas/FormikControl';
 import RecruitersLogo from '../../../components/Atomos/RecruitersLogo';
 import styles from '../../scss/form/empresa.module.scss';
 import LogoImage from '@components/Atomos/LogoImage';
 import { CreateBusinessForm } from '../../../forms/CreateBusinessForm';
-import { useUser } from '@auth0/nextjs-auth0';
 import { FormPageData } from 'data/Pages';
+import { getCsrfToken, getSession } from 'next-auth/client';
 
-const index = () => {
-  const { user, error, isLoading } = useUser();
+interface indexProps {
+  session: any;
+}
+
+const index = ({ session }: indexProps) => {
+  useEffect(() => {
+    const getData = async () => {
+      const csrfToken = await getCsrfToken();
+      const newSEssion = await getSession();
+      console.log(csrfToken);
+      console.log('Session oBj');
+      console.log(newSEssion);
+    };
+    getData();
+  }, []);
 
   // Información de la pagina del formulario Recruiter
   const {
@@ -35,3 +48,10 @@ const index = () => {
 };
 
 export default index;
+
+export async function getServerSideProps(context: any) {
+  const session = await getSession(context);
+  return {
+    props: { session },
+  };
+}

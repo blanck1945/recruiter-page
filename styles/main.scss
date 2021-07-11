@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 @font-face {
   font-family: 'Neo-Sans-std';
@@ -20,8 +21,14 @@
   src: url('./fonts/Montserrat-Bold.ttf');
 }
 
+@font-face {
+  font-family: 'Lato-regular';
+  src: url('./fonts/Lato-Regular.ttf');
+}
+
 @import './variables/index';
 @import './globals';
 @import './base/base.scss';
 @import './reset';
 @import './components/components.scss';
+@import '../styles/components/index.scss';

@@ -1,0 +1,34 @@
+@import '../../styles/base/functions';
+@import '../../styles/variables/_variables';
+
+.jobList {
+  margin: auto;
+  margin-bottom: 3.4rem;
+  width: 80%;
+  cursor: pointer;
+
+  & > div:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3.4rem;
+
+    p {
+      font-family: 'Lato', sans-serif;
+      font-weight: bold;
+      color: $main-gray;
+      font-size: 2.2rem;
+    }
+
+    svg {
+      background-color: $main-orange;
+      color: $main-white;
+      width: 7.3rem;
+      height: 5.8rem;
+      padding: 0.8rem;
+      font-size: 6rem;
+      border-radius: 0.7rem;
+      cursor: pointer;
+    }
+  }
+}

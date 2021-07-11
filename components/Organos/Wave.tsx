@@ -6,7 +6,11 @@ import { RowsEnums } from 'types/Enums';
 import { ServicesInterface } from 'types/Interfaces';
 import ServiceCard from '@components/Atomos/ServiceCard';
 
-const Wave = () => {
+interface WaveProps {
+  wave?: string;
+}
+
+const Wave = ({ wave }: WaveProps) => {
   const getServices = (value: RowsEnums) => {
     return Services.map((service: ServicesInterface, index: number) => {
       if (service.row === value) {
@@ -17,7 +21,7 @@ const Wave = () => {
 
   return (
     <>
-      <div className={styles.services}>
+      <div className={wave === 'cut' ? styles.servicesCut : styles.services}>
         <div>
           <h2>
             Brindamos servicios de reclutamiento con un foco muy fuerte en las relaciones humanas de
@@ -29,9 +33,9 @@ const Wave = () => {
           <div>{getServices(RowsEnums.two)}</div>
           <div>{getServices(RowsEnums.three)}</div>
         </div>
-      </div>
-      <div className={styles.bottomWave}>
-        <h4>boost your business</h4>
+        <div>
+          <h4>boost your business</h4>
+        </div>
       </div>
     </>
   );

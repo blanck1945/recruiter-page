@@ -1,0 +1,62 @@
+@import '../../styles/variables/variables.scss';
+
+.search {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 96rem;
+
+  @media (max-width: $laptop1440) {
+    height: 64rem;
+  }
+
+  & > div:first-of-type {
+    padding-top: 15rem;
+
+    & > div {
+      position: relative;
+      left: 85%;
+    }
+
+    & > h3 {
+      text-align: end;
+      padding-top: 2.5rem;
+      padding-right: 3.5rem;
+      font-size: 7rem;
+      line-height: 7.5rem;
+      color: $main-orange;
+
+      @media (max-width: $laptop1440) {
+        font-size: 5rem;
+        line-height: 5.5rem;
+      }
+    }
+  }
+
+  & > div:nth-child(2) {
+    height: 96rem;
+    background-color: $main-light-blue;
+    padding-top: 15rem;
+
+    @media (max-width: $laptop1440) {
+      height: 70rem;
+    }
+
+    & > h2 {
+      font-size: 13rem;
+      text-transform: uppercase;
+      line-height: 11.5rem;
+      color: $main-white;
+      font-weight: bold;
+      padding-left: 3rem;
+      font-family: $neo-sans;
+    }
+  }
+}
+
+.searchBar {
+  position: relative;
+  bottom: 30rem;
+  @media (max-width: $laptop1440) {
+    bottom: 10rem;
+  }
+}

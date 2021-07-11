@@ -9,17 +9,30 @@ import SocialLinks from '@components/Atomos/SocialLinks';
 import { ButtonsInterface, SocialLinkInterface } from 'types/Interfaces';
 import router from 'data/router';
 import { UserContext } from '@auth0/nextjs-auth0';
+import { signIn, signOut } from 'next-auth/client';
+import useWindowSize from 'hooks/useWindowWidth';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 interface NavigationProps {
   value: LayoutValueEnum;
 }
 
 const Navigation = ({ value }: NavigationProps) => {
+  const windowWidth = useWindowSize();
+
   const socialLinks = social.map((socialLink: SocialLinkInterface) => {
     return <SocialLinks socialLink={socialLink} />;
   });
 
   const buttonsLinks = router.buttons.map((btn: ButtonsInterface, index: number) => {
+    if (btn.name === 'login') {
+      return (
+        <Button click={signIn} {...btn}>
+          {btn.content}
+        </Button>
+      );
+    }
+
     return <Button {...btn}>{btn.content}</Button>;
   });
 
@@ -37,9 +50,9 @@ const Navigation = ({ value }: NavigationProps) => {
     case LayoutValueEnum.recruiter:
       return (
         <nav className={styles.recruiterNavigation}>
-          <div>{socialLinks}</div>
+          {windowWidth.width > 880 ? <div>{socialLinks}</div> : null}
           <RecruitersLogo />
-          <div>{buttonsLinks}</div>
+          {windowWidth.width > 880 ? <div>{buttonsLinks}</div> : <GiHamburgerMenu />}
         </nav>
       );
     default:

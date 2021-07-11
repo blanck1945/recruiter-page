@@ -9,6 +9,7 @@
   height: 11.7rem;
   grid-template-columns: repeat(3, 1fr);
   border-bottom: 1px solid #cecece;
+  padding-left: 2.5rem;
 
   & > h3 {
     @include flex_center_center;
@@ -38,6 +39,7 @@
 
 .recruiterNavigation {
   @extend .navigation;
+  padding-left: 0rem;
 
   & > div:first-of-type {
     /* UI Properties */
@@ -48,5 +50,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  @media (max-width: 880px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem;
+  }
+  @media (max-width: 550px) {
+    flex-direction: column;
+    height: 12rem;
+  }
+
+  & > svg {
+    font-size: 4rem;
+    cursor: pointer;
+    color: $main-orange;
   }
 }

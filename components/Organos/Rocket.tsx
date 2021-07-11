@@ -15,7 +15,7 @@ const Rocket = ({ data }: RocketProps) => {
       <div>
         <Header data={data} />
       </div>
-      <LazyLoadImage src="/darths.png" alt="rocket" height="850px" width="850px" />
+      <LazyLoadImage src="/home/empresa/blanco.png" alt="rocket" height="850px" width="850px" />
     </div>
   );
 };

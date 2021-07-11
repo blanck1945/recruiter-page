@@ -2,8 +2,8 @@
 @import '../../styles/variables/mixin';
 
 .services {
-  background-image: url('../../public/wave.png');
-  height: 116rem;
+  background-image: url('../../public/home/empresa/wave-full.png');
+  height: 138rem;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2, 55%);
@@ -70,12 +70,43 @@
       }
     }
   }
+
+  & > div:nth-child(3) {
+    min-width: 198rem;
+    position: relative;
+    top: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h4 {
+    color: $main-white;
+    font-size: 7rem;
+    font-weight: 700;
+    font-family: $neo-sans;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    @media screen and (max-width: $laptop1440) {
+      top: 3rem;
+    }
+  }
+}
+
+.servicesCut {
+  @extend .services;
+  background-repeat: no-repeat;
+  background-image: url('../../public/home/recruiter/Path 1134.png');
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 55%);
+  overflow: hidden;
 }
 
 .bottomWave {
   height: 23.4rem;
   margin-top: -0.1rem;
-  background-image: url('../../public/Rectangle 4.png');
+  background-image: url('../../public/home/empresa/wave-full.png');
   display: flex;
   align-items: center;
   justify-content: center;

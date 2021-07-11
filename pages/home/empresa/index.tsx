@@ -3,14 +3,14 @@ import Certificado from '@components/Moleculas/Certificado';
 import Banner from '@components/Organos/Banner';
 import Rocket from '@components/Organos/Rocket';
 import Wave from '@components/Organos/Wave';
+import { EmpresaPageData } from 'data/pages/home/EmpresaPage';
 import Layout from 'layout/Layout';
 import React from 'react';
 import { LayoutValueEnum } from 'types/Enums';
-import PageData from '../../../data/Pages';
 
 const HomePage = () => {
   // Información estatica de las paginas
-  const { buttonContent, para, rocket, certificado } = PageData.empresa;
+  const { buttonContent, para, rocket, certificado } = EmpresaPageData;
 
   return (
     <Layout value={LayoutValueEnum.empresa}>

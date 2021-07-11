@@ -29,6 +29,7 @@ export const CreateCandidateValidationSchema = yup.object().shape({
 });
 
 export const CreateCandidate = {
+  auth: true,
   initialValues: {
     nombre: '',
     dni: '',
@@ -87,14 +88,15 @@ export const CreateCandidate = {
     },
   ],
   validationSchema: CreateCandidateValidationSchema,
-  onSubmit: async (props: any) => {
+  onSubmit: async (props: any, token: string) => {
     try {
       props.disponibilidadLaboral = setDisponibilidadLaboral(props.disponibilidadLaboral);
       let formData = props;
       if (props.file) {
         formData = createFormData(props);
       }
-      //await axiosSender(AppApiEndPoints.createCandidate, formData);
+      const response = await axiosSender(AppApiEndPoints.createCandidate, formData, token);
+      //console.log(response);
       return formatResponseMsg(201);
     } catch (err) {
       return formatResponseMsg(400);

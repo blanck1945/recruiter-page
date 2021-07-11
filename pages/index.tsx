@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router';
 import RecruitersLogo from '../components/Atomos/RecruitersLogo';
-import PageData from '../data/Pages';
 import styles from './scss/Home.module.scss';
 import Button from '../components/Atomos/Button';
 import LogoImage from '../components/Atomos/LogoImage';
-import { useUser } from '@auth0/nextjs-auth0';
+import { useSession } from 'next-auth/client';
+import Image from 'next/image';
+import { HomePageData } from 'data/pages/HomePage';
 
 // Delete this if runtime JavaScript is needed:
 export const config = {
@@ -17,46 +18,55 @@ const Home = () => {
 
   // Información estatica de las paginas
   const {
-    header: { header: Header, subHeader: SubHeader },
-  } = PageData.home;
+    text: { header: Header, subHeader: SubHeader },
+    buttons,
+  } = HomePageData;
 
-  const { user } = useUser();
+  const [session, isLoading] = useSession();
 
-  if (user) {
-    router.push(`dashboard/${user.name}/dash`);
+  if (session?.user) {
+    router.push(`dashboard/${session.user.name}/dash`);
   }
 
   if (pathname === '/') {
     return (
       <div className={styles.container}>
-        {user && user.name ? (
-          <p>Loading...</p>
-        ) : (
-          <>
-            <div></div>
-            <div className={styles.data}>
-              <div>
-                <LogoImage />
-                <RecruitersLogo />
-              </div>
-              <div className={styles.bannerHeader}>
-                <Header />
-                <SubHeader />
-              </div>
-              <div>
-                <Button type="anchor" path="/home/empresa" buttonClass="homeWhite">
-                  Empresa
+        <div>
+          <Image
+            src={'/home/business-3d-3.png'}
+            alt="mujer-home"
+            height={150}
+            width={214}
+            priority
+          />
+          <Image
+            src={'/home/business-3d-2.png'}
+            alt="mujer-home"
+            height={150}
+            width={214}
+            priority
+          />
+          <Image src={'/mujer-home.png'} alt="mujer-home" height={600} width={600} priority />
+        </div>
+        <div className={styles.data}>
+          <div>
+            <LogoImage />
+            <RecruitersLogo />
+          </div>
+          <div className={styles.bannerHeader}>
+            <Header />
+            <SubHeader />
+          </div>
+          <div>
+            {buttons.map((btn: any, index: number) => {
+              return (
+                <Button key={index} {...btn}>
+                  {btn.content}
                 </Button>
-                <Button type="anchor" path="/home/recruiter" buttonClass="homeOrange">
-                  Recruiter
-                </Button>
-                <Button type="anchor" buttonClass="homeBlue">
-                  Empleos
-                </Button>
-              </div>
-            </div>
-          </>
-        )}
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
   }

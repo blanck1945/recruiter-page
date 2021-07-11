@@ -2,17 +2,30 @@
 
 $desktop1680: 1680px;
 $laptop1440: 1440px;
+$ipad: 1024px;
+$mobile: 750px;
+$iphone: 375px;
 
 // Colors
 
+// Orange
 $main-orange: #ed653a;
+
+// Yellow
+$main-yellow: #eec60a;
 
 // Blue
 $main-light-blue: #90d1e2;
 $secondary-light-blue: #a2d9e7;
 $home-blue: #2ab6db;
 
+// White - Gray
 $main-white: #ffffff;
+$card-white: #f6f6f6;
+$main-gray: #77717178;
+$ofertas-gray: #707070;
+$text-gray: #6c6c6c;
+$option-gray: #949494;
 
 // Black
 $main-black: #4b4b4b;
@@ -25,3 +38,4 @@ $neo-sans-light: 'Neo-Sans-std-light';
 $monserrat: 'Montserrat', sans-serif;
 $monserrat-bold: 'Monserrat-bold';
 $monserrat-light: 'Monserrat-light';
+$lato-regular: 'Lato-regular';

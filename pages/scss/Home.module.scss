@@ -6,6 +6,20 @@
   grid-template-columns: repeat(2, 38%);
   height: 100vh;
 
+  & > div:first-of-type {
+    & > div:first-of-type {
+      position: absolute;
+      left: 45rem;
+      top: 17rem;
+      z-index: 5;
+    }
+    & > div:nth-child(2) {
+      position: absolute;
+      left: 20rem;
+      top: 25rem;
+    }
+  }
+
   .data {
     display: flex;
     flex-direction: column;

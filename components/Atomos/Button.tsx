@@ -8,14 +8,24 @@ interface ButtonProps {
   children: string;
   type?: string;
   path?: string;
+  disabledRef?: boolean;
+  click?: any;
 }
 
-const Button = ({ buttonClass, children, type, path }: ButtonProps) => {
+const Button = ({ buttonClass, children, type, path, disabledRef, click }: ButtonProps) => {
   if (type === 'auth') {
     return (
       <a href={path} className={styles[buttonClass]}>
         {children}
       </a>
+    );
+  }
+
+  if (type === 'customAnchor') {
+    return (
+      <Link href={path ? path : AppRouter.pathHome}>
+        <a className={buttonClass}>{children}</a>
+      </Link>
     );
   }
 
@@ -27,8 +37,21 @@ const Button = ({ buttonClass, children, type, path }: ButtonProps) => {
     );
   }
 
+  if (type === 'next-auth') {
+    return (
+      <button
+        onClick={() => click('auth0')}
+        disabled={disabledRef}
+        type="submit"
+        className={styles[buttonClass]}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <button type="submit" className={styles[buttonClass]}>
+    <button disabled={disabledRef} type="submit" className={styles[buttonClass]}>
       {children}
     </button>
   );

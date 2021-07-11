@@ -1,9 +1,11 @@
 import '@styles/main.scss';
 import 'tailwindcss/tailwind.css';
 import '@styles/global.css';
-import { UserProvider } from '@auth0/nextjs-auth0';
 import { AppProps } from 'next/dist/next-server/lib/router/router';
 import FormProvider from 'context/formContext';
+import Meta from '@components/utils/Meta';
+import { Provider as NextAuthProvider, useSession } from 'next-auth/client';
+import JobsProvider from 'context/jobContext';
 
 // Delete this if runtime JavaScript is needed:
 export const config = {
@@ -18,12 +20,14 @@ export const config = {
 // }
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { user } = pageProps;
   return (
-    <UserProvider user={user}>
-      <FormProvider>
-        <Component {...pageProps} />
-      </FormProvider>
-    </UserProvider>
+    <NextAuthProvider session={pageProps.session}>
+      <JobsProvider>
+        <FormProvider>
+          <Meta />
+          <Component {...pageProps} />
+        </FormProvider>
+      </JobsProvider>
+    </NextAuthProvider>
   );
 }

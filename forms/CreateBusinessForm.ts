@@ -1,4 +1,5 @@
 import { AppApiEndPoints, BusinessFormFields, WorkTypeEnums } from 'types/Enums';
+import { BusinessFormRango, BusinessFormRubro } from 'types/forms/enums';
 import { FormResponse } from 'types/Interfaces';
 import { axiosSender } from 'utils/axios';
 import * as yup from 'yup';
@@ -10,11 +11,22 @@ import {
 } from './FormMessages';
 import { formatResponseMsg } from './uitls';
 
+export interface CreateBusinessFormInterface {
+  nombre: string;
+  cuit: string;
+  rubro: BusinessFormRubro;
+  rangoEmpleados: BusinessFormRango;
+  mailsDeContacto: string;
+  tipoDeEmpresa: 'Elija una Opción';
+  modalidadDeTrabajo: 'Elija una Opción';
+  paises: 'Elija una Opción';
+}
+
 const setWorkType = (value: string) => {
   switch (value) {
-    case 'presencial':
+    case 'Presencial':
       return WorkTypeEnums.presencial;
-    case 'mixto':
+    case 'Mixto':
       return WorkTypeEnums.mixto;
     default:
       return WorkTypeEnums.distancia;
@@ -22,10 +34,20 @@ const setWorkType = (value: string) => {
 };
 
 // Opciones para los imputs Select y los Schemas de la API.
-const rubrosEmpresaOptions = ['Tecnología', 'Petróleo', 'Consultoría'];
-const rangoDeEmpleadosOptions = ['1-10', '11-50', '51-200', '201-500', 'Más de 500'];
+const rubrosEmpresaOptions = [
+  BusinessFormRubro.tecnologia,
+  BusinessFormRubro.petroleo,
+  BusinessFormRubro.consultoria,
+];
+const rangoDeEmpleadosOptions = [
+  BusinessFormRango.n1n10,
+  BusinessFormRango.n11n50,
+  BusinessFormRango.n51n200,
+  BusinessFormRango.n201n500,
+  BusinessFormRango.mas500,
+];
 const tipoDeEmpresaOptions = ['Startup', 'PyME'];
-const modalidadDeTrabajo = ['Home', 'Presencial', 'mixto'];
+const modalidadDeTrabajo = ['Home', 'Presencial', 'Mixto'];
 const paisesEmpresa = ['Argentina', 'Uruguay', 'Paraguay', 'EEUU'];
 
 // Valores no asignables a las opciones del formulario
@@ -49,11 +71,7 @@ export const CreateBusinessValidationSchema = yup.object().shape({
     .required(requiredValidation(BusinessFormFields.rango))
     .not(noValidaOptions, notOneOfValidation())
     .oneOf(rangoDeEmpleadosOptions, oneOfValidation(BusinessFormFields.rango)),
-  mailsDeContacto: yup
-    .string()
-    .required(requiredValidation(BusinessFormFields.email))
-    .trim()
-    .email(),
+  mailsDeContacto: yup.string().required(requiredValidation(BusinessFormFields.email)).email(),
   tipoDeEmpresa: yup
     .mixed()
     .required(requiredValidation(BusinessFormFields.tipoDeEmpresa))
@@ -72,6 +90,7 @@ export const CreateBusinessValidationSchema = yup.object().shape({
 });
 
 export const CreateBusinessForm = {
+  auth: false,
   initialValues: {
     nombre: '',
     cuit: '',
@@ -137,11 +156,14 @@ export const CreateBusinessForm = {
   validationSchema: CreateBusinessValidationSchema,
   onSubmit: async (props: any): Promise<FormResponse> => {
     try {
+      let dataToSend = {
+        ...props,
+      };
       // Función para cambiar la modalidad de trabajo al Enum necesario en la API
-      props.modalidadDeTrabajo = setWorkType(props.modalidadDeTrabajo);
+      dataToSend.modalidadDeTrabajo = setWorkType(props.modalidadDeTrabajo);
 
       // El mail de contacto es del tipo array, para testear se arregla el mail antes de mandar.
-      props.mailsDeContacto = [props.mailsDeContacto];
+      dataToSend.mailsDeContacto = [props.mailsDeContacto];
       //await axiosSender(AppApiEndPoints.createBusiness, props);
       return formatResponseMsg(201);
     } catch (err) {

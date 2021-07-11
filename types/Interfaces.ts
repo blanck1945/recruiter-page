@@ -37,3 +37,17 @@ export interface FormResponse {
   state: string;
   finish: boolean;
 }
+
+export interface FormInputs {
+  comp?: string;
+  type?: string;
+  name: string;
+  divClass: string;
+  errorClass?: string;
+  inputProp: any;
+  placeholder?: string;
+  as?: string;
+  options?: string[];
+  className?: string;
+  custom?: any;
+}
