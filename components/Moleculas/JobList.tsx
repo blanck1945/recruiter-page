@@ -6,16 +6,16 @@ import JobCard from '@components/Atomos/JobCard';
 import { GlobaljobContext } from 'context/jobContext';
 
 const JobList = () => {
-  const { jobs } = useContext(GlobaljobContext);
-
-  console.log(jobs);
+  const { jobs, resultJobs } = useContext(GlobaljobContext);
 
   const dummyJobList =
-    jobs &&
-    jobs.map((el, index: number) => {
-      return <JobCard key={index} job={el} />;
-    });
-
+    resultJobs.length === 0 && jobs
+      ? jobs.map((el, index: number) => {
+          return <JobCard key={index} job={el} />;
+        })
+      : resultJobs.map((el: any, index: number) => {
+          return <JobCard key={index} job={el} />;
+        });
   return (
     <div className={styles.jobList}>
       <div>
@@ -23,7 +23,6 @@ const JobList = () => {
         <MdSort />
       </div>
       <div>{dummyJobList}</div>
-      <div>Paginator</div>
     </div>
   );
 };

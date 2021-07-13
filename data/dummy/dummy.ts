@@ -35,6 +35,6 @@ export const dummyData = [
     descripcion: '',
     recruiter: '',
     locacion: 'Buenos Aires, Argentina',
-    modalidadDeTrabajo: 'UX/UI Designer',
+    modalidadDeTrabajo: 'Part-time',
   },
 ];

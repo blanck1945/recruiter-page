@@ -1,4 +1,4 @@
-import { AppApiEndPoints, BusinessFormFields, WorkTypeEnums } from 'types/Enums';
+import { AppApiEndPoints, BusinessFormFields, ButtonEnum, WorkTypeEnums } from 'types/Enums';
 import { BusinessFormRango, BusinessFormRubro } from 'types/forms/enums';
 import { FormResponse } from 'types/Interfaces';
 import { axiosSender } from 'utils/axios';
@@ -55,6 +55,7 @@ const noValidaOptions = ['Elija una Opción'];
 
 // Validación en el Front-end con Yup.
 export const CreateBusinessValidationSchema = yup.object().shape({
+  nombreReference: yup.string().required().trim().lowercase(),
   nombre: yup.string().required(requiredValidation(BusinessFormFields.nombre)).trim().lowercase(),
   cuit: yup
     .string()
@@ -91,7 +92,9 @@ export const CreateBusinessValidationSchema = yup.object().shape({
 
 export const CreateBusinessForm = {
   auth: false,
+  buttonProp: false,
   initialValues: {
+    nombreReference: '',
     nombre: '',
     cuit: '',
     rubro: 'Elija una Opción',
@@ -102,6 +105,11 @@ export const CreateBusinessForm = {
     paises: 'Elija una Opción',
   },
   builder: [
+    {
+      placeholder: 'Nombre del Referente',
+      name: 'nombreReferente',
+      className: 'formInputs',
+    },
     {
       placeholder: 'Nombre',
       name: 'nombre',
@@ -151,6 +159,10 @@ export const CreateBusinessForm = {
       as: 'select',
       options: ['Elija una Opción', ...paisesEmpresa],
       className: 'formInputsSelect',
+    },
+    {
+      as: 'button',
+      className: ButtonEnum.navOrage,
     },
   ],
   validationSchema: CreateBusinessValidationSchema,

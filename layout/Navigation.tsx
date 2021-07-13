@@ -9,7 +9,7 @@ import SocialLinks from '@components/Atomos/SocialLinks';
 import { ButtonsInterface, SocialLinkInterface } from 'types/Interfaces';
 import router from 'data/router';
 import { UserContext } from '@auth0/nextjs-auth0';
-import { signIn, signOut } from 'next-auth/client';
+import { signIn, signOut, useSession } from 'next-auth/client';
 import useWindowSize from 'hooks/useWindowWidth';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
@@ -19,7 +19,9 @@ interface NavigationProps {
 
 const Navigation = ({ value }: NavigationProps) => {
   const windowWidth = useWindowSize();
-
+  const session = useSession();
+  const username = session[0] && session[0].user?.name;
+  console.log(session);
   const socialLinks = social.map((socialLink: SocialLinkInterface) => {
     return <SocialLinks socialLink={socialLink} />;
   });
@@ -41,18 +43,36 @@ const Navigation = ({ value }: NavigationProps) => {
       return (
         <nav className={styles.navigation}>
           <div className={styles.navigationConvert}>
-            <Link href={AppRouter.pathRecruiter}>Convertite en Recruiter</Link>
+            <Link href={'/form/recruiter'}>Convertite en Recruiter</Link>
           </div>
-          <RecruitersLogo />
-          <div>{socialLinks}</div>
+          <RecruitersLogo link />
+          {windowWidth.width > 1024 ? (
+            <div className={styles.socialLinks}>{socialLinks}</div>
+          ) : null}
         </nav>
       );
     case LayoutValueEnum.recruiter:
       return (
         <nav className={styles.recruiterNavigation}>
           {windowWidth.width > 880 ? <div>{socialLinks}</div> : null}
-          <RecruitersLogo />
-          {windowWidth.width > 880 ? <div>{buttonsLinks}</div> : <GiHamburgerMenu />}
+          <Link href="/">
+            <RecruitersLogo link />
+          </Link>
+          {windowWidth.width > 880 ? (
+            session[0] && session[0].user?.name ? (
+              <div className={styles.logBox}>
+                <Link href={`/home/profile/${username}`}>
+                  <p>{username} </p>
+                </Link>
+                {'/'}
+                <p onClick={() => signOut()}>Cerrar Sesión</p>
+              </div>
+            ) : (
+              <div className={styles.linkBox}>{buttonsLinks}</div>
+            )
+          ) : (
+            <GiHamburgerMenu />
+          )}
         </nav>
       );
     default:

@@ -11,11 +11,22 @@
   border-bottom: 1px solid #cecece;
   padding-left: 2.5rem;
 
+  @media (max-width: $ipad) {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+  }
+
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
   & > h3 {
     @include flex_center_center;
   }
 
-  & > div {
+  & > div:first-of-type {
     @include flex_center_center;
   }
 
@@ -35,6 +46,12 @@
       font-size: 1.7rem;
     }
   }
+
+  .socialLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .recruiterNavigation {
@@ -46,7 +63,7 @@
     border: none;
   }
 
-  & > div:nth-child(3) {
+  .linkBox {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,5 +84,19 @@
     font-size: 4rem;
     cursor: pointer;
     color: $main-orange;
+  }
+}
+
+.logBox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: $main-orange;
+  font-size: 1.5rem;
+  justify-content: center;
+
+  & p:hover {
+    transition: 0.2s ease-in-out;
+    color: $main-light-blue;
   }
 }

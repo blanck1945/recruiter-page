@@ -29,8 +29,14 @@ const index = ({ session }: indexProps) => {
     <div className={styles.form}>
       <div>
         <LogoImage />
-        <RecruitersLogo />
-        <Image src="/formRecruiter.png" alt="form-recruiter" height={450} width={400} priority />
+        <RecruitersLogo link />
+        <Image
+          src="/form/empresa/recruiter.png"
+          alt="form-recruiter"
+          height={450}
+          width={400}
+          priority
+        />
       </div>
       <div>
         <div>

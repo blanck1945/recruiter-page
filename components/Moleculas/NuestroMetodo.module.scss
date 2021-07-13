@@ -3,6 +3,7 @@
 .method {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-top: 12rem;
 
   & > div:first-of-type {
     width: 100%;

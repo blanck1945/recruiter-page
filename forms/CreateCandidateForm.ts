@@ -1,4 +1,4 @@
-import { AppApiEndPoints, WorkTimeEnums } from 'types/Enums';
+import { AppApiEndPoints, ButtonEnum, WorkTimeEnums } from 'types/Enums';
 import { axiosSender } from 'utils/axios';
 import * as yup from 'yup';
 import { createFormData, formatResponseMsg } from './uitls';
@@ -30,6 +30,7 @@ export const CreateCandidateValidationSchema = yup.object().shape({
 
 export const CreateCandidate = {
   auth: true,
+  buttonProp: false,
   initialValues: {
     nombre: '',
     dni: '',
@@ -85,6 +86,10 @@ export const CreateCandidate = {
       as: 'select',
       options: ['Elija una Opción', ...disponibilidadLaboralOptions],
       className: 'formInputsSelect',
+    },
+    {
+      as: 'button',
+      className: ButtonEnum.navOrage,
     },
   ],
   validationSchema: CreateCandidateValidationSchema,

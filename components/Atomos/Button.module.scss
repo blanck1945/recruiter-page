@@ -15,6 +15,15 @@
   margin-right: 2rem;
   padding-bottom: 0.1rem;
   font-size: 1.7rem;
+
+  @media (max-width: $laptop1440) {
+    height: 4rem;
+    width: 13rem;
+  }
+
+  @media (max-width: $mobile) {
+    margin-bottom: 2rem;
+  }
 }
 
 .homeWhite {

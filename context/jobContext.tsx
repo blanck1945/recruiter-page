@@ -3,7 +3,10 @@ import React, { useState, createContext, Component } from 'react';
 interface JobsProviderProps {
   jobs: any[];
   job: any;
+  resultJobs: any;
   dispatchOneJob: any;
+  clearSearchJobs: any;
+  searchJobs: any;
 }
 
 const initialState = {
@@ -56,14 +59,14 @@ const JobsProvider = ({ children }: jobsContextProps) => {
         descripcion: '',
         recruiter: '',
         locacion: 'Buenos Aires, Argentina',
-        modalidadDeTrabajo: 'UX/UI Designer',
+        modalidadDeTrabajo: 'Part-time',
       },
     ],
     job: {},
+    resultJobs: [],
   });
 
   const dispatchOneJob = (jobId: number) => {
-    console.log(jobId);
     setState({
       ...state,
       job: jobs.filter((el: any, index: number) => {
@@ -74,10 +77,32 @@ const JobsProvider = ({ children }: jobsContextProps) => {
     });
   };
 
-  const { job, jobs } = state;
+  const searchJobs = (value: string) => {
+    setState({
+      ...state,
+      resultJobs: jobs.filter((el: any, index: number) => {
+        const normalizeValue = el.puesto.toLowerCase();
+        if (normalizeValue.includes(value)) {
+          console.log(el);
+          return el;
+        }
+      }),
+    });
+  };
+
+  const clearSearchJobs = () => {
+    setState({
+      ...state,
+      resultJobs: [],
+    });
+  };
+
+  const { job, jobs, resultJobs } = state;
 
   return (
-    <GlobaljobContext.Provider value={{ job, jobs, dispatchOneJob }}>
+    <GlobaljobContext.Provider
+      value={{ job, jobs, resultJobs, dispatchOneJob, searchJobs, clearSearchJobs }}
+    >
       {children}
     </GlobaljobContext.Provider>
   );

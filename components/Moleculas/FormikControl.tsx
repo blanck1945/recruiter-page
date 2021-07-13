@@ -92,6 +92,15 @@ const FormikControl = ({
                 if (el.as === 'custom') {
                   return <CustomInput key={index} inputProps={el} />;
                 }
+                if (el.as === 'button') {
+                  return (
+                    <div className="btnDiv">
+                      <Button disabledRef={state.sending} buttonClass={ButtonEnum.navOrage}>
+                        Enviar
+                      </Button>
+                    </div>
+                  );
+                }
                 return <TextInputs key={index} inputProps={el} />;
               })}
             </div>

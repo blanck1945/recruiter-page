@@ -3,7 +3,7 @@ import RecruitersLogo from '../components/Atomos/RecruitersLogo';
 import styles from './scss/Home.module.scss';
 import Button from '../components/Atomos/Button';
 import LogoImage from '../components/Atomos/LogoImage';
-import { useSession } from 'next-auth/client';
+import { signOut, useSession } from 'next-auth/client';
 import Image from 'next/image';
 import { HomePageData } from 'data/pages/HomePage';
 
@@ -24,29 +24,19 @@ const Home = () => {
 
   const [session, isLoading] = useSession();
 
-  if (session?.user) {
-    router.push(`dashboard/${session.user.name}/dash`);
-  }
-
   if (pathname === '/') {
     return (
       <div className={styles.container}>
         <div>
-          <Image
-            src={'/home/business-3d-3.png'}
-            alt="mujer-home"
-            height={150}
-            width={214}
-            priority
-          />
+          <Image src={'/business-3d-3.png'} alt="mujer-home" height={150} width={200} priority />
           <Image
             src={'/home/business-3d-2.png'}
             alt="mujer-home"
             height={150}
-            width={214}
+            width={200}
             priority
           />
-          <Image src={'/mujer-home.png'} alt="mujer-home" height={600} width={600} priority />
+          <Image src={'/mujer-home.png'} alt="mujer-home" height={800} width={800} priority />
         </div>
         <div className={styles.data}>
           <div>

@@ -38,20 +38,37 @@
 
 .formDiv {
   display: flex;
-  height: 6rem;
+  height: 9rem;
+  align-items: center;
   flex-direction: column;
+
+  @media (max-width: $ipad) {
+    margin-bottom: 0;
+  }
   .inputs:focus {
     border: 0.15rem solid lighten($color: $main-orange, $amount: 15%);
   }
 
   & > .formInputs {
     @extend .inputs;
-    height: 6.5rem;
+    height: 5.5rem;
     width: 94%;
     border-radius: 4rem;
-    padding-left: 4rem;
     outline: none;
     font-size: 1.5rem;
+    padding-left: 3rem;
+
+    @media (max-width: $ipad) {
+      height: 4.5rem;
+      padding-left: 3rem;
+      width: 60%;
+    }
+
+    @media (max-width: 550px) {
+      height: 4.5rem;
+      padding-left: 3rem;
+      width: 80%;
+    }
   }
 
   .formInputs::placeholder {
@@ -65,15 +82,27 @@
     width: 94%;
     height: 5.5rem;
     border-radius: 4rem;
-    padding-left: 4rem;
     appearance: none;
     outline: none;
+    padding-left: 3rem;
     background-color: white;
     font-size: 1.5rem;
     color: $main-black;
     font-weight: bold;
     font-family: $monserrat-light;
     cursor: pointer;
+
+    @media (max-width: $ipad) {
+      height: 4.5rem;
+      padding-left: 3rem;
+      width: 60%;
+    }
+
+    @media (max-width: 550px) {
+      height: 4.5rem;
+      padding-left: 3rem;
+      width: 80%;
+    }
   }
 
   .arrow {
@@ -87,12 +116,17 @@
   }
 
   .errorMsg {
-    margin-left: 3rem;
     width: 80%;
+    height: 2rem;
     font-size: 1.5rem;
     text-align: center;
-    color: $secondary-light-blue;
-    background-color: $main-orange;
+    color: red;
+
+    @media (max-width: $laptop1440) {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
   }
 }
 

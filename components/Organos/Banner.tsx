@@ -6,6 +6,7 @@ import { ButtonEnum, LayoutValueEnum } from 'types/Enums';
 import useWindowSize from 'hooks/useWindowWidth';
 import { setHeight, setWidth } from 'utils/windowSize';
 import LogoImage from '@components/Atomos/LogoImage';
+import Link from 'next/link';
 
 interface BannerProps {
   image: LayoutValueEnum;
@@ -36,7 +37,9 @@ const Banner = ({ image, para: Para, buttonContent }: BannerProps) => {
           <h2>con nuestra red</h2>
         </div>
         <Para />
-        <Button buttonClass={ButtonEnum.sumate}>{buttonContent}</Button>
+        <Link href="/form/empresa">
+          <p className={styles.sumate}>{buttonContent}</p>
+        </Link>
       </div>
       <div>
         <Image

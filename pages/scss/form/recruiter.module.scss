@@ -16,16 +16,17 @@
     align-items: center;
     margin-top: 10rem;
     flex-direction: column;
+  }
 
-    & > div:nth-child(3) {
-      position: relative;
-      left: 3rem;
-      bottom: 2rem;
-      top: 7.5rem;
-    }
-    @media (max-width: $ipad) {
-      display: none;
-    }
+  .orangeModal {
+    background-color: $main-orange;
+    height: 34.1rem;
+    width: 100%;
+    margin-top: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $main-white;
   }
 
   & > div:nth-child(2) {
@@ -35,7 +36,7 @@
     flex-direction: column;
     background-color: $main-light-blue;
     padding-top: 17.2rem;
-    min-height: 98.5rem;
+    height: 100vh;
 
     @media (max-width: $laptop1440) {
       padding-top: 8.2rem;
@@ -96,20 +97,13 @@
         @media (max-width: $ipad) {
           grid-template-columns: repeat(1, 1fr);
           width: 100%;
-        }
 
-        & div:last-of-type {
-          display: flex;
-          justify-content: flex-end;
-          margin-right: 3rem;
-          margin-top: 0.5 rem;
-
-          @media (max-width: $ipad) {
-            justify-content: center;
-          }
-
-          button {
-            height: 5rem;
+          .btnDiv {
+            @media (max-width: $ipad) {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
           }
         }
       }

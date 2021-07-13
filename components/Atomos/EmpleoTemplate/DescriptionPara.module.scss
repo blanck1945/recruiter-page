@@ -1,0 +1,39 @@
+@import '../../../styles/variables/variables';
+
+.container {
+  margin-left: 12rem;
+
+  @media (max-width: $ipad) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  h3 {
+    font-size: 2.6rem;
+    color: #484848;
+    font-weight: bold;
+    font-family: $lato-regular;
+    padding-bottom: 4.9rem;
+
+    @media (max-width: $ipad) {
+      font-size: 1.8em;
+    }
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: #949494;
+    font-family: $lato-regular;
+    width: 50%;
+    padding-bottom: 5.6rem;
+
+    @media (max-width: $ipad) {
+      width: 80%;
+      font-size: 1.2rem;
+    }
+  }
+}

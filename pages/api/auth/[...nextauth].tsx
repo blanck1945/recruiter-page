@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
-const options = {
+const options: any = {
   providers: [
     Providers.Auth0({
       clientId: process.env.AUTH0_CLIENT_ID,
@@ -27,10 +27,11 @@ const options = {
      */
     async jwt(token: any, user: any, account: any, profile: any, isNewUser: any) {
       // Add access_token to the token right after signin
-      if (account?.accessToken) {
-        token.accessToken = account.token_type + ' ' + account.id_token;
-      }
       console.log(token);
+      console.log(account);
+      if (account?.accessToken) {
+        token.accessToken = account.idToken;
+      }
       return token;
     },
     /**

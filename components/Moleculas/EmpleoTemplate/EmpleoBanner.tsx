@@ -23,7 +23,7 @@ const EmpleoBanner = ({ job }: EmpleoBannerProps) => {
     },
     {
       icon: () => <IoLocation />,
-      data: data ? data.location : 'Sin Locacion',
+      data: data ? data.locacion : 'Sin Locacion',
     },
   ];
 
@@ -38,7 +38,7 @@ const EmpleoBanner = ({ job }: EmpleoBannerProps) => {
       </div>
       <div>
         <div>
-          <span>{data ? data.tipo : 'Sin tipo'}</span>
+          <span>{data ? data.empresa : 'Sin tipo'}</span>
           <p>Hace 5 h</p>
         </div>
         <div>{iconComp}</div>

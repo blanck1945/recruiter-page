@@ -8,7 +8,6 @@ import { LayoutValueEnum } from 'types/Enums';
 
 const index = () => {
   const { job } = useContext(GlobaljobContext);
-  console.log(job);
   return (
     <Layout value={LayoutValueEnum.recruiter}>
       <EmpleoBanner job={job} />
