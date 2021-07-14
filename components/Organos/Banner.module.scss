@@ -9,12 +9,19 @@
   height: 87rem;
   margin-top: 8rem;
 
+  @media (max-width: $desktop1680) {
+    height: 80rem;
+  }
+
   @media screen and (max-width: $ipad) {
     align-items: center;
+    height: 70rem;
+    margin-top: 4rem;
   }
 
   @media (max-width: $mobile) {
     margin-top: 0rem;
+    align-items: unset;
     grid-template-columns: 100% !important;
   }
 
@@ -24,6 +31,11 @@
     margin-top: 8rem;
     @media screen and (max-width: $laptop1440) {
       padding-left: 18rem;
+    }
+
+    @media screen and (max-width: $ipad) {
+      height: 65vh;
+      padding-left: 14.2rem;
     }
 
     @media (max-width: $mobile) {
@@ -125,7 +137,21 @@
   }
 
   & > div:nth-child(2) {
-    margin-left: 9rem;
+    margin-left: 18rem;
+    position: relative;
+    bottom: 4rem;
+
+    @media (max-width: $desktop1680) {
+      bottom: 2rem;
+    }
+
+    @media (max-width: $laptop1440) {
+      bottom: 0;
+    }
+
+    @media (max-width: $ipad) {
+      bottom: 11rem;
+    }
     @media (max-width: $mobile) {
       display: none;
     }

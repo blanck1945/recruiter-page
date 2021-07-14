@@ -1,5 +1,4 @@
 @import '../styles/variables/mixin';
-@import '../styles/variables/_variables';
 
 .navigation {
   @apply grid;
@@ -14,11 +13,13 @@
   @media (max-width: $ipad) {
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
+    padding-left: 0;
   }
 
   @media (max-width: $mobile) {
     display: flex;
     flex-direction: column;
+    height: 13rem;
     margin-top: 2rem;
   }
 
@@ -31,6 +32,10 @@
   }
 
   .navigationConvert {
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+    }
     a {
       border: 3px solid $secondary-light-blue;
       border-radius: 3rem;

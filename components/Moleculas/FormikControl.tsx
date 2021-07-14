@@ -41,7 +41,6 @@ const FormikControl = ({
   useEffect(() => {
     const getToken = async () => {
       const session = await getSession();
-      console.log(session);
       setAuthToken(await getSession());
     };
     if (auth) {
@@ -55,9 +54,7 @@ const FormikControl = ({
     }
   }, [state]);
 
-  useEffect(() => {
-    console.log(authToken);
-  }, [authToken]);
+  useEffect(() => {}, [authToken]);
 
   const startFormSend = async (props: any) => {
     toogleSendingState();

@@ -10,10 +10,23 @@
   align-items: center;
   padding-top: 2rem;
 
+  @media (max-width: $ipad) {
+    width: 18rem;
+    height: 19rem;
+  }
+
+  @media (max-width: $mobile) {
+    margin-bottom: 1.5rem;
+  }
+
   svg {
     color: $main-orange;
     font-size: 4rem;
     margin-bottom: 1.5rem;
+
+    @media (max-width: $ipad) {
+      font-size: 2rem;
+    }
   }
 
   h3 {
@@ -22,6 +35,10 @@
     font-family: $neo-sans;
     letter-spacing: 0.1rem;
     font-weight: bold;
+
+    @media (max-width: $ipad) {
+      font-size: 1.5rem;
+    }
   }
 
   p {
@@ -32,6 +49,10 @@
     font-size: 1.3rem;
     color: $main-black;
     font-weight: 200;
+
+    @media (max-width: $ipad) {
+      font-size: 1rem;
+    }
   }
 }
 

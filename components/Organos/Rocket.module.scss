@@ -6,7 +6,28 @@
   img {
     margin-left: 14rem;
     position: absolute;
-    left: 71rem;
-    top: 227rem;
+    left: 73rem;
+    top: 235rem;
+    overflow: hidden;
+
+    @media screen and (max-width: $desktop1680) {
+      left: 57rem;
+      top: 208rem;
+    }
+
+    @media screen and (max-width: $laptop1440) {
+      left: 42rem;
+      top: 180rem;
+    }
+
+    @media screen and (max-width: $ipad) {
+      left: 28rem;
+      top: 164rem;
+      width: 55rem;
+    }
+
+    @media screen and (max-width: $mobile) {
+      display: none;
+    }
   }
 }

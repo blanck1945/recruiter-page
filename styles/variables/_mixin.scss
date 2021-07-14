@@ -14,12 +14,36 @@
   overflow: hidden;
   grid-template-columns: repeat(2, 55%);
 
+  @media (max-width: $mobile) {
+    grid-template-columns: 100%;
+    min-height: 32rem;
+  }
+
   & > div:first-of-type {
     display: flex;
     align-items: center;
     flex-direction: column;
     padding-left: 22rem;
     margin-top: 16rem;
+
+    @media screen and (max-width: $ipad) {
+      padding-left: 12rem;
+
+      & > :first-child {
+        font-size: 2rem;
+        line-height: 2.8rem;
+      }
+
+      & > :nth-child(2) {
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
+    }
+    @media (max-width: $mobile) {
+      text-align: center;
+      padding-left: 0;
+      margin-top: 8rem;
+    }
   }
 }
 

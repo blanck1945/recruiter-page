@@ -7,9 +7,23 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: $mobile) {
+      justify-content: center;
+    }
+
     & > div {
       margin-left: 20rem;
       margin-top: 15rem;
+
+      @media (max-width: $ipad) {
+        margin-left: 7rem;
+        margin-top: 4rem;
+      }
+
+      @media (max-width: $mobile) {
+        margin-left: 0;
+        margin-top: 6rem;
+      }
     }
   }
 }

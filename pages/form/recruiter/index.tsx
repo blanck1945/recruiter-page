@@ -4,17 +4,15 @@ import RecruitersLogo from '../../../components/Atomos/RecruitersLogo';
 import Image from 'next/image';
 import LogoImage from '@components/Atomos/LogoImage';
 import { CreateCandidate } from 'forms/CreateCandidateForm';
-import { FormPageData } from 'data/Pages';
 import { useSession } from 'next-auth/client';
 import stylesRecruiter from '../../scss/form/recruiter.module.scss';
+import { RecrutierFormData } from 'data/pages/form/RecruiterPage';
 
 const index = () => {
   const [session, loading] = useSession();
 
   // Información de la pagina del formulario Recruiter
-  const {
-    recruiter: { header: Header },
-  } = FormPageData;
+  const { header: Header } = RecrutierFormData;
 
   return (
     <div className={stylesRecruiter.form}>
@@ -22,7 +20,7 @@ const index = () => {
         <LogoImage />
         <RecruitersLogo link />
         <div className={stylesRecruiter.orangeModal}>
-          <h4>Estás a un paso de convertirte en Recruiter Freelance</h4>
+          <Header />
         </div>
         <div className={stylesRecruiter.blueGreen}></div>
       </div>

@@ -5,12 +5,15 @@ import { Services } from 'data/Services';
 import { RowsEnums } from 'types/Enums';
 import { ServicesInterface } from 'types/Interfaces';
 import ServiceCard from '@components/Atomos/ServiceCard';
+import useWindowSize from 'hooks/useWindowWidth';
 
 interface WaveProps {
   wave?: string;
 }
 
 const Wave = ({ wave }: WaveProps) => {
+  const { width } = useWindowSize();
+
   const getServices = (value: RowsEnums) => {
     return Services.map((service: ServicesInterface, index: number) => {
       if (service.row === value) {
@@ -21,7 +24,15 @@ const Wave = ({ wave }: WaveProps) => {
 
   return (
     <>
-      <div className={wave === 'cut' ? styles.servicesCut : styles.services}>
+      <div
+        className={
+          width < 780
+            ? styles.servicesMobile
+            : wave === 'cut'
+            ? styles.servicesCut
+            : styles.services
+        }
+      >
         <div>
           <h2>
             Brindamos servicios de reclutamiento con un foco muy fuerte en las relaciones humanas de
@@ -30,8 +41,17 @@ const Wave = ({ wave }: WaveProps) => {
         </div>
         <div className={styles.rightDiv}>
           <div>{getServices(RowsEnums.one)}</div>
-          <div>{getServices(RowsEnums.two)}</div>
-          <div>{getServices(RowsEnums.three)}</div>
+          {width < 780 ? (
+            <div>
+              <div>{getServices(RowsEnums.two)}</div>
+              <div>{getServices(RowsEnums.three)}</div>
+            </div>
+          ) : (
+            <>
+              <div>{getServices(RowsEnums.two)}</div>
+              <div>{getServices(RowsEnums.three)}</div>
+            </>
+          )}
         </div>
         <div>
           <h4>boost your business</h4>

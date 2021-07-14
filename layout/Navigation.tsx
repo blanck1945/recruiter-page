@@ -42,10 +42,21 @@ const Navigation = ({ value }: NavigationProps) => {
     case LayoutValueEnum.empresa:
       return (
         <nav className={styles.navigation}>
-          <div className={styles.navigationConvert}>
-            <Link href={'/form/recruiter'}>Convertite en Recruiter</Link>
-          </div>
-          <RecruitersLogo link />
+          {windowWidth.width > 750 ? (
+            <>
+              <div className={styles.navigationConvert}>
+                <Link href={'/form/recruiter'}>Convertite en Recruiter</Link>
+              </div>
+              <RecruitersLogo link />
+            </>
+          ) : (
+            <>
+              <div className={styles.navigationConvert}>
+                <RecruitersLogo link />
+                <Link href={'/form/recruiter'}>Convertite en Recruiter</Link>
+              </div>
+            </>
+          )}
           {windowWidth.width > 1024 ? (
             <div className={styles.socialLinks}>{socialLinks}</div>
           ) : null}

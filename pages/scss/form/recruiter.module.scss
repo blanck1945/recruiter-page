@@ -16,17 +16,53 @@
     align-items: center;
     margin-top: 10rem;
     flex-direction: column;
+    @media (max-width: $ipad) {
+      display: none;
+    }
   }
 
   .orangeModal {
     background-color: $main-orange;
     height: 34.1rem;
     width: 100%;
-    margin-top: 8rem;
+    margin-top: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
     color: $main-white;
+
+    & > :first-child {
+      font-size: 5rem;
+      text-align: center;
+      line-height: 5.5rem;
+      font-family: $neo-sans-light;
+
+      @media (max-width: $desktop1680) {
+        font-size: 4rem;
+        text-align: center;
+        line-height: 4.5rem;
+      }
+
+      span {
+        font-family: $neo-sans;
+      }
+    }
+  }
+
+  .blueGreen {
+    height: 2.5rem;
+    width: 50%;
+    position: relative;
+    left: 14.5rem;
+    background-color: #3baca8;
+
+    @media (max-width: $desktop1680) {
+      left: 12.6rem;
+    }
+
+    @media (max-width: $desktop1680) {
+      left: 10.8rem;
+    }
   }
 
   & > div:nth-child(2) {
@@ -98,11 +134,18 @@
           grid-template-columns: repeat(1, 1fr);
           width: 100%;
 
-          .btnDiv {
+          & div:last-of-type {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 3rem;
+            margin-top: 0.5 rem;
+
             @media (max-width: $ipad) {
-              display: flex;
-              align-items: center;
               justify-content: center;
+            }
+
+            button {
+              height: 5rem;
             }
           }
         }
