@@ -7,9 +7,12 @@ import { CreateCandidate } from 'forms/CreateCandidateForm';
 import { useSession } from 'next-auth/client';
 import stylesRecruiter from '../../scss/form/recruiter.module.scss';
 import { RecrutierFormData } from 'data/pages/form/RecruiterPage';
+import { TiArrowBack } from 'react-icons/ti';
+import useWindowSize from 'hooks/useWindowWidth';
+import Link from 'next/link';
 
 const index = () => {
-  const [session, loading] = useSession();
+  const { width } = useWindowSize();
 
   // Información de la pagina del formulario Recruiter
   const { header: Header } = RecrutierFormData;
@@ -26,6 +29,11 @@ const index = () => {
       </div>
       <div>
         <div>
+          {width < 1024 ? (
+            <Link href="/">
+              <TiArrowBack />
+            </Link>
+          ) : null}
           <h5>Completá los siguientes datos y nos pondremos en contacto.</h5>
         </div>
         <FormikControl {...CreateCandidate} />

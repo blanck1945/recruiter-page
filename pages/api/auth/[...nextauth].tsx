@@ -2,12 +2,17 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
+const aud = process.env.AUTH0_API_AUDIENCE ? process.env.AUTH0_API_AUDIENCE : '';
+
 const options: any = {
   providers: [
     Providers.Auth0({
       clientId: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
       domain: process.env.AUTH0_DOMAIN,
+      authorizationUrl: `https://${
+        process.env.AUTH0_DOMAIN
+      }/authorize?response_type=code&audience=${encodeURI(aud)}`,
     }),
   ],
   jwt: {
@@ -27,8 +32,6 @@ const options: any = {
      */
     async jwt(token: any, user: any, account: any, profile: any, isNewUser: any) {
       // Add access_token to the token right after signin
-      console.log(token);
-      console.log(account);
       if (account?.accessToken) {
         token.accessToken = account.idToken;
       }

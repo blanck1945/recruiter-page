@@ -6,6 +6,8 @@ import FormProvider from 'context/formContext';
 import Meta from '@components/utils/Meta';
 import { Provider as NextAuthProvider, useSession } from 'next-auth/client';
 import JobsProvider from 'context/jobContext';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '@styles/base/theme';
 
 // Delete this if runtime JavaScript is needed:
 export const config = {
@@ -22,12 +24,14 @@ export const config = {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <NextAuthProvider session={pageProps.session}>
-      <JobsProvider>
-        <FormProvider>
-          <Meta />
-          <Component {...pageProps} />
-        </FormProvider>
-      </JobsProvider>
+      <ThemeProvider theme={theme}>
+        <JobsProvider>
+          <FormProvider>
+            <Meta />
+            <Component {...pageProps} />
+          </FormProvider>
+        </JobsProvider>
+      </ThemeProvider>
     </NextAuthProvider>
   );
 }

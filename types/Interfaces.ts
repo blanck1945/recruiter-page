@@ -41,12 +41,14 @@ export interface FormResponse {
 export interface FormInputs {
   comp?: string;
   type?: string;
+  for?: string;
   name: string;
   divClass: string;
   errorClass?: string;
   inputProp: any;
   placeholder?: string;
   as?: string;
+  labelClass?: string;
   options?: string[];
   className?: string;
   custom?: any;

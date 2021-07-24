@@ -11,7 +11,7 @@
     justify-content: center;
   }
 
-  & > div:first-of-type {
+  .mainDiv {
     display: flex;
     align-items: center;
     margin-top: 10rem;
@@ -45,12 +45,18 @@
     @media (max-width: $ipad) {
       @include setVerticalPadding(5rem, 5rem);
       padding-top: 5rem;
-      height: 152vh;
+      height: 120vh;
       width: 100%;
     }
 
     & > div {
       @apply w-full;
+    }
+
+    svg {
+      font-size: 2.5rem;
+      cursor: pointer;
+      color: $main-white;
     }
 
     h2 {
@@ -88,29 +94,44 @@
     & > form {
       @apply w-full;
 
-      & > div {
-        width: 90%;
+      & > div:first-child {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
         @media (max-width: $ipad) {
           grid-template-columns: repeat(1, 1fr);
           width: 100%;
+          height: 74rem;
+        }
+      }
+
+      & > div:last-of-type {
+        align-items: center;
+        justify-content: flex-end;
+        display: flex;
+        padding-right: 2rem;
+        margin-top: 3rem;
+        padding-top: 2rem;
+      }
+
+      @media (max-width: $ipad) {
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        padding-bottom: 3rem;
+      }
+
+      & div:last-of-type {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 3rem;
+        margin-top: 0.5 rem;
+
+        @media (max-width: $ipad) {
+          justify-content: center;
         }
 
-        & div:last-of-type {
-          display: flex;
-          justify-content: flex-end;
-          margin-right: 3rem;
-          margin-top: 0.5 rem;
-
-          @media (max-width: $ipad) {
-            justify-content: center;
-          }
-
-          button {
-            height: 5rem;
-          }
+        button {
+          height: 5rem;
         }
       }
     }

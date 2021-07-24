@@ -9,8 +9,6 @@ interface CertiicadoProps {
 }
 
 const Certificado = ({ data }: CertiicadoProps) => {
-  console.log(CertificadoData);
-
   return (
     <div className={styles.certificado}>
       <div>

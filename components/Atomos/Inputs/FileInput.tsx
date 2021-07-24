@@ -1,5 +1,5 @@
 import { ErrorMessage } from 'formik';
-import React from 'react';
+import React, { useRef } from 'react';
 import { FormInputs } from 'types/Interfaces';
 
 interface FileInputProps {
@@ -8,9 +8,30 @@ interface FileInputProps {
 }
 
 const FileInput = ({ inputProps, setFieldValue }: FileInputProps) => {
+  const refInput = useRef(null);
+
+  const clickInput = () => {
+    const newValue: any = refInput;
+    if (refInput) {
+      newValue?.current?.click();
+    }
+  };
+
   return (
     <div className={inputProps.divClass ? inputProps.divClass : 'formDiv'}>
+      <span
+        style={{
+          backgroundColor: 'white',
+          paddingTop: '18px',
+          color: 'gray',
+        }}
+        className="formInputs"
+        onClick={() => clickInput()}
+      >
+        CV
+      </span>
       <input
+        ref={refInput}
         type="file"
         {...inputProps}
         onChange={(event: any) => {

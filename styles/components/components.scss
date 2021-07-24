@@ -169,3 +169,11 @@
     }
   }
 }
+
+.labelClass {
+  @extend .formInputs;
+}
+
+input[type='file'] {
+  display: none;
+}

@@ -3,22 +3,30 @@ import React, { useEffect } from 'react';
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { AppRouter } from 'types/Enums';
 import { signOut, useSession } from 'next-auth/client';
+import { TwoColumnsDiv } from '@styles/Containers/TwoColumns';
+import SideBar from '@components/Dashboard/SideBar';
+import CenterScreen from '@components/Dashboard/CenterScreen';
 
 const dash = () => {
   // Next Router
   const router = useRouter();
 
-  const [session, isLoading] = useSession();
+  // Next-auth session
+  const session = useSession();
 
-  useEffect(() => {
-    if (!session?.user?.name) {
-      router.push('/');
-    }
-  });
+  console.log(session);
+
   return (
-    <a href="#" onClick={() => signOut()}>
-      {session?.user?.name} Logout
-    </a>
+    <TwoColumnsDiv>
+      {session ? (
+        <>
+          <SideBar session={session} />
+          <CenterScreen />
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </TwoColumnsDiv>
   );
 };
 

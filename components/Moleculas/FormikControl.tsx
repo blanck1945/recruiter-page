@@ -91,7 +91,7 @@ const FormikControl = ({
                 }
                 if (el.as === 'button') {
                   return (
-                    <div className="btnDiv">
+                    <div style={{ display: 'none' }}>
                       <Button disabledRef={state.sending} buttonClass={ButtonEnum.navOrage}>
                         Enviar
                       </Button>
@@ -101,13 +101,17 @@ const FormikControl = ({
                 return <TextInputs key={index} inputProps={el} />;
               })}
             </div>
-            {button ? (
-              button
-            ) : buttonProp ? (
-              <Button disabledRef={state.sending} buttonClass={ButtonEnum.navOrage}>
-                Enviar
-              </Button>
-            ) : null}
+            {builder.map((el, index: number) => {
+              if (el.as === 'button') {
+                return (
+                  <div className="btnDiv customBtn">
+                    <Button disabledRef={state.sending} buttonClass={ButtonEnum.navOrage}>
+                      Enviar
+                    </Button>
+                  </div>
+                );
+              }
+            })}
           </Form>
         );
       }}

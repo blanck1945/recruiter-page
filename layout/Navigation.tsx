@@ -21,7 +21,6 @@ const Navigation = ({ value }: NavigationProps) => {
   const windowWidth = useWindowSize();
   const session = useSession();
   const username = session[0] && session[0].user?.name;
-  console.log(session);
   const socialLinks = social.map((socialLink: SocialLinkInterface) => {
     return <SocialLinks socialLink={socialLink} />;
   });

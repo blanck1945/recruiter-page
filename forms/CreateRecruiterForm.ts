@@ -49,7 +49,9 @@ export const CreateCandidate = {
       placeholder: 'CV',
       name: 'cv',
       as: 'file',
-      className: 'formInputs',
+      className: 'none-display',
+      labelClass: 'formInputs',
+      for: 'file',
     },
     {
       placeholder: 'Fecha de Nacimiento',

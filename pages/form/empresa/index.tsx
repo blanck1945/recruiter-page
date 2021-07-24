@@ -6,19 +6,17 @@ import styles from '../../scss/form/empresa.module.scss';
 import LogoImage from '@components/Atomos/LogoImage';
 import { CreateBusinessForm } from '../../../forms/CreateBusinessForm';
 import { FormPageData } from 'data/Pages';
-import { getCsrfToken, getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/client';
+import { TiArrowBack } from 'react-icons/ti';
+import useWindowSize from 'hooks/useWindowWidth';
+import Link from 'next/link';
 
 interface indexProps {
   session: any;
 }
 
 const index = ({ session }: indexProps) => {
-  useEffect(() => {
-    const getData = async () => {
-      const newSEssion = await getSession();
-    };
-    getData();
-  }, []);
+  const { width } = useWindowSize();
 
   // Información de la pagina del formulario Recruiter
   const {
@@ -27,7 +25,7 @@ const index = ({ session }: indexProps) => {
 
   return (
     <div className={styles.form}>
-      <div>
+      <div className={styles.mainDiv}>
         <LogoImage />
         <RecruitersLogo link />
         <Image
@@ -40,6 +38,11 @@ const index = ({ session }: indexProps) => {
       </div>
       <div>
         <div>
+          {width < 1024 ? (
+            <Link href="/">
+              <TiArrowBack />
+            </Link>
+          ) : null}
           <Header />
           <h5>Completá los siguientes datos y nos pondremos en contacto.</h5>
         </div>

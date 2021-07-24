@@ -23,6 +23,7 @@ const Footer = () => {
       <div>
         <FormikControl {...NewsletterForm} />
       </div>
+      {windowWidth.width < 880 ? <div>{socialLinks}</div> : null}
     </footer>
   );
 };
