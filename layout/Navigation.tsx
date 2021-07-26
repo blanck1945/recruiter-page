@@ -8,7 +8,6 @@ import Button from '@components/Atomos/Button';
 import SocialLinks from '@components/Atomos/SocialLinks';
 import { ButtonsInterface, SocialLinkInterface } from 'types/Interfaces';
 import router from 'data/router';
-import { UserContext } from '@auth0/nextjs-auth0';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import useWindowSize from 'hooks/useWindowWidth';
 import { GiHamburgerMenu } from 'react-icons/gi';

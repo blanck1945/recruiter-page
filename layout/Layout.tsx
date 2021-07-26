@@ -14,7 +14,7 @@ const Layout = ({ children, value }: LayoutProps) => {
     <>
       <Meta />
       <Navigation value={value} />
-      <main>{children}</main>
+      <main style={{ marginBottom: '-22rem' }}>{children}</main>
       <Footer />
     </>
   );

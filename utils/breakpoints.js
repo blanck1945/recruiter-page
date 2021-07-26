@@ -1,5 +1,24 @@
 import { css } from 'styled-components';
 
+/**
+ * laptop: number
+ * ipad: number
+ * mobile: number
+ */
+export const Queries = {
+  laptop: 1440,
+  ipad: 1028,
+  mobile: 750,
+};
+
+/**
+ *
+ * @param {*} cssProp the CSS property to apply to the breakpoints
+ * @param {*} cssPropUnits the units of the CSS property (can set equal to "" and apply units to values directly)
+ * @param {*} values array of objects, e.g. [{ 800: 60 }, ...] <-- 800 (key) = screen breakpoint, 60 (value) = CSS prop breakpoint
+ * @param {*} mediaQueryType media query breakpoint type, i.e.: max-width, min-width, max-height, min-height
+ * @returns
+ */
 export const breakpoints = (
   cssProp = 'padding', // the CSS property to apply to the breakpoints
   cssPropUnits = 'rem', // the units of the CSS property (can set equal to "" and apply units to values directly)

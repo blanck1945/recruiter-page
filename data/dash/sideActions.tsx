@@ -1,26 +1,35 @@
+import { MdLocationSearching } from 'react-icons/md';
+import { BsPeople } from 'react-icons/bs';
+import { GiSuitcase } from 'react-icons/gi';
+import { AiFillSetting } from 'react-icons/ai';
+import { FiHelpCircle } from 'react-icons/fi';
+import { BiExit } from 'react-icons/bi';
+import { signOut } from 'next-auth/client';
+
 export const sideActions = [
   {
-    icon: '',
+    icon: () => <MdLocationSearching />,
     content: 'Tus búsquedas',
   },
   {
-    icon: '',
+    icon: () => <BsPeople />,
     content: 'Candidatos',
   },
   {
-    icon: '',
+    icon: () => <GiSuitcase />,
     content: 'Empresas',
   },
   {
-    icon: '',
+    icon: () => <AiFillSetting />,
     content: 'Configuración',
   },
   {
-    icon: '',
+    icon: () => <FiHelpCircle />,
     content: 'Ayuda',
   },
   {
-    icon: '',
+    name: 'exit',
+    icon: () => <BiExit />,
     content: 'Salir',
   },
 ];

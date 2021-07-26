@@ -21,13 +21,13 @@ export const HomePageData = {
   buttons: [
     {
       type: 'anchor',
-      path: '/form/empresa',
+      path: '/home/empresa',
       buttonClass: 'homeWhite',
       content: 'Empresa',
     },
     {
       type: 'anchor',
-      path: '/home/empresa',
+      path: '/home/recruiter',
       buttonClass: 'homeOrange',
       content: 'Recruiter',
     },

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
 import { AppRouter } from 'types/Enums';
 import { signOut, useSession } from 'next-auth/client';
@@ -13,8 +13,6 @@ const dash = () => {
 
   // Next-auth session
   const session = useSession();
-
-  console.log(session);
 
   return (
     <TwoColumnsDiv>

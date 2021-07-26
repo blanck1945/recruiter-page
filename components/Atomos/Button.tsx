@@ -39,12 +39,7 @@ const Button = ({ buttonClass, children, type, path, disabledRef, click }: Butto
 
   if (type === 'next-auth') {
     return (
-      <button
-        onClick={() => click('auth0')}
-        disabled={disabledRef}
-        type="submit"
-        className={styles[buttonClass]}
-      >
+      <button onClick={() => click('auth0')} type="submit" className={styles[buttonClass]}>
         {children}
       </button>
     );

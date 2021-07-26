@@ -56,6 +56,8 @@ export enum AppRouter {
   pathLoginForm = '/form/recruiter',
   dashboard = '/dasboard/*',
   pathHome = '/',
+  homeRecruiter = '/home/recruiter',
+  formRecruiter = '/form/recruiter',
 }
 
 export enum EmpleoTemplateParagraph {

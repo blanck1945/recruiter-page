@@ -22,8 +22,6 @@ const Home = () => {
     buttons,
   } = HomePageData;
 
-  const [session, isLoading] = useSession();
-
   if (pathname === '/') {
     return (
       <div className={styles.container}>

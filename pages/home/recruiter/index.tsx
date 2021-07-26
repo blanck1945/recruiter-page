@@ -7,12 +7,14 @@ import React, { useEffect, useState } from 'react';
 import { LayoutValueEnum } from 'types/Enums';
 import { getSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
+import RecruiterWave from '@components/home/RecruiterWave';
+import RecruiterBanner from '@components/home/RecruiterBanner';
+import RecruiterInfo from '@components/home/RecruiterInfo';
+import RecruiterInfoDos from '@components/home/RecruiterInfoDos';
 
 const index = ({ session }: any) => {
-  // Información estatica de las paginas
-  const { buttonContent, para, rocket } = RecruiterPageData;
   const [loading, setLoading] = useState<boolean>(true);
-
+  console.warn(session);
   const router = useRouter();
 
   useEffect(() => {
@@ -30,9 +32,10 @@ const index = ({ session }: any) => {
         <p>Reedirigiendo usuario</p>
       ) : (
         <Layout value={LayoutValueEnum.recruiter}>
-          <Banner buttonContent={buttonContent} para={para} image={LayoutValueEnum.recruiter} />
-          <Wave wave="cut" />
-          <Rocket data={rocket} />
+          <RecruiterBanner />
+          <RecruiterWave />
+          <RecruiterInfo />
+          <RecruiterInfoDos />
         </Layout>
       )}
     </>
@@ -48,3 +51,5 @@ export async function getServerSideProps(ctx: any) {
     },
   };
 }
+
+//<Rocket data={rocket} />
